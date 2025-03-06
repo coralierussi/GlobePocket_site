@@ -103,8 +103,6 @@ export default {
             width: 40%;
             background-color: rgb(158, 158, 158);
             border-radius: 50px;
-            /* margin-top: 20%;
-            margin-left: 30%; */
             z-index: 10;
             .title{
                 color: white;

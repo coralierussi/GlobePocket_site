@@ -3,7 +3,7 @@
       <div class="logo">
           <p class="logo-img" src="" alt=""/>
       </div>
-      <div class="navbar d-flex">
+      <div class="navbar">
           <li><a class="link-header" href="/main.vue">Accueil</a></li>
           <li><a class="link-header" href="/main.vue">Pays</a></li>
           <li><a class="link-header" href="/main.vue">Activités</a></li>
@@ -50,6 +50,7 @@ export default{
             }
         }
         .navbar{
+            display: flex;
             margin-left: auto;
             width: 60%;
             .link-header{
