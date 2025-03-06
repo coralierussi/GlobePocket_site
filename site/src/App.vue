@@ -1,10 +1,10 @@
 <template>
   <main id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
     <HeaderSite/>
+    <!-- <br><br><br><br><br><br><br><br> -->
     <div class="presentation">
         <div class="carousel">
-            <!-- <img class="carousel-images" src="./assets/SiteCSS/voyage-2.png" alt=""> -->
+            <img class="carousel-images" src="./assets/voyage-2.png" alt="">
             <div class="en-tete">
                 <p class="title">Suivez vos envies</p>
             </div>
@@ -15,14 +15,14 @@
 
         </div>
         <div class="img">
-            <!-- <img class="img-globe" src="./assets/SiteCSS/earth.jpg" alt=""> -->
+            <img class="img-globe" src="./assets/earth.jpg" alt="">
         </div>
     </div>
   </main>
 </template>
 
 <script>
-import HeaderSite from './components/Header.vue'
+import HeaderSite from './components/HeaderSite.vue'
 
 export default {
   // name: 'App',
@@ -35,10 +35,12 @@ export default {
 }
 </script>
 
-<style lang="sccs" scoped>
+<style sccs scoped>
+
 *{
     margin: 0%;
     padding: 0%;
+}
 
     a{
         text-decoration: none;
@@ -118,5 +120,5 @@ export default {
             }
         }
     }
-}
+
 </style>

@@ -12,7 +12,7 @@
           <li><a class="link-header" href="/main.vue">Locations</a></li>
       </div>
       <div class="compte">
-          <!-- <img class="compte-img" src="/assests/SiteCSS/user.png" alt=""/> -->
+          <img class="compte-img" src="/assests/user.png" alt=""/>
       </div>
   </main>
 </template>
