@@ -1,6 +1,8 @@
 <template>
     <main class="coup-coeurs d-flex">
-        
+        <div class="img-activite">
+            <p>IMG activité</p>
+        </div>
     </main>
   </template>
   
