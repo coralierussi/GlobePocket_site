@@ -1,9 +1,9 @@
 <template>
     <main class="coup-coeurs d-flex">
-        <div class="activite-coeurs">
+        <div class="activite-new">
             <div class="img-activite">
-                <img class="img-love" src="/site/src/assets/favori.png" alt="Image coeur">
-                <p class="text">IMG activité</p>
+                <p class="new">Nouveauté</p>
+                <p class="text">IMG nouveauté</p>
             </div>
             <div class="tag-favoris d-flex">
                 <div class="tag d-flex">
@@ -24,12 +24,12 @@
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam fringilla est nec mi placerat cursus ut vel lorem. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Donec volutpat, purus vitae suscipit vehicula, risus risus vehicula tellus, sed vehicula ipsum dui id nisi. Aliquam metus libero, congue eget consequat mollis, ultrices eu arcu. Morbi tortor neque, egestas ut dictum ut, porttitor vitae sapien. In non tellus sed urna placerat dapibus.
                 </p>
             </div>
-            <button type="button" class="btn-coeur">Voir plus</button>
+            <button type="button" class="btn-new">Voir plus</button>
         </div>
-        <div class="activite-coeurs">
+        <div class="activite-new">
             <div class="img-activite">
-                <img class="img-love" src="/site/src/assets/favori.png" alt="Image coeur">
-                <p class="text">IMG activité</p>
+                <p class="new">Nouveauté</p>
+                <p class="text">IMG nouveauté</p>
             </div>
             <div class="tag-favoris d-flex">
                 <div class="tag d-flex">
@@ -50,12 +50,12 @@
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam fringilla est nec mi placerat cursus ut vel lorem. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Donec volutpat, purus vitae suscipit vehicula, risus risus vehicula tellus, sed vehicula ipsum dui id nisi. Aliquam metus libero, congue eget consequat mollis, ultrices eu arcu. Morbi tortor neque, egestas ut dictum ut, porttitor vitae sapien. In non tellus sed urna placerat dapibus.
                 </p>
             </div>
-            <button type="button" class="btn-coeur">Voir plus</button>
+            <button type="button" class="btn-new">Voir plus</button>
         </div>
-        <div class="activite-coeurs">
+        <div class="activite-new">
             <div class="img-activite">
-                <img class="img-love" src="/site/src/assets/favori.png" alt="Image coeur">
-                <p class="text">IMG activité</p>
+                <p class="new">Nouveauté</p>
+                <p class="text">IMG nouveauté</p>
             </div>
             <div class="tag-favoris d-flex">
                 <div class="tag d-flex">
@@ -76,12 +76,12 @@
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam fringilla est nec mi placerat cursus ut vel lorem. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Donec volutpat, purus vitae suscipit vehicula, risus risus vehicula tellus, sed vehicula ipsum dui id nisi. Aliquam metus libero, congue eget consequat mollis, ultrices eu arcu. Morbi tortor neque, egestas ut dictum ut, porttitor vitae sapien. In non tellus sed urna placerat dapibus.
                 </p>
             </div>
-            <button type="button" class="btn-coeur">Voir plus</button>
+            <button type="button" class="btn-new">Voir plus</button>
         </div>
-        <div class="activite-coeurs">
+        <div class="activite-new">
             <div class="img-activite">
-                <img class="img-love" src="/site/src/assets/favori.png" alt="Image coeur">
-                <p class="text">IMG activité</p>
+                <p class="new">Nouveauté</p>
+                <p class="text">IMG nouveauté</p>
             </div>
             <div class="tag-favoris d-flex">
                 <div class="tag d-flex">
@@ -102,7 +102,7 @@
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam fringilla est nec mi placerat cursus ut vel lorem. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Donec volutpat, purus vitae suscipit vehicula, risus risus vehicula tellus, sed vehicula ipsum dui id nisi. Aliquam metus libero, congue eget consequat mollis, ultrices eu arcu. Morbi tortor neque, egestas ut dictum ut, porttitor vitae sapien. In non tellus sed urna placerat dapibus.
                 </p>
             </div>
-            <button type="button" class="btn-coeur">Voir plus</button>
+            <button type="button" class="btn-new">Voir plus</button>
         </div>
 
 
@@ -111,7 +111,7 @@
   
   <script>
   export default{
-          name: 'CoupCoeurs',
+          name: 'ActiviteNouveaute',
           props:{
   
           },
@@ -124,7 +124,7 @@
   </script>
   
   <style lang="scss" scoped>
-  .activite-coeurs{
+  .activite-new{
     background-color: #cac9c9;
     width: 25%;
     padding: 15px;
@@ -139,7 +139,7 @@
             font-size: 25px;
             padding-top: 20%;
         }
-        .img-love{
+        .new{
             margin-left: 25px;
             padding-top: 10px;
         }
@@ -165,7 +165,7 @@
             width: 20%;
         }
     }
-    .btn-coeur{
+    .btn-new{
         background-color: #b17d7d;
         color: white;
         font-size: 17px;

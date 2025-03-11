@@ -6,10 +6,10 @@
             <div class="carousel-slide" data-bs-ride="carousel">
               <div class="carousel-inner">
                 <div class="carousel-item active" data-bs-interval="5000">
-                  <img src="./assets/voyage-2.png" class="d-block w-100" alt="...">
+                  <img src="./assets/voyage-2.png" class="d-block w-100">
                 </div>
                 <div class="carousel-item" data-bs-interval="5000">
-                  <img src="./assets/voyage-1.png" class="d-block w-100" alt="...">
+                  <img src="./assets/voyage-1.png" class="d-block w-100">
                 </div>
               </div>
             </div>
@@ -65,9 +65,12 @@
         <p class="sous-titre">Nos activités</p>
         <div class="coup-coeur">
             <h4 class="substiles">Les coups de coeurs</h4>
+            <CoupCoeurs/> 
+
         </div>
         <div class="nouveautes">
             <h4 class="substiles">Les nouveautés</h4>
+            <ActiviteNouveaute/>
         </div>
     </div>
   </main>
@@ -75,11 +78,12 @@
 
 <script>
 import CoupCoeurs from './components/CoupCoeurs.vue';
-import HeaderSite from './components/HeaderSite.vue'
+import HeaderSite from './components/HeaderSite.vue';
+import ActiviteNouveaute from './components/ActiviteNouveaute.vue';
 
 export default {
   name: 'App',
-  components: { HeaderSite, CoupCoeurs },
+  components: { HeaderSite, CoupCoeurs, ActiviteNouveaute},
   data(){
     return {
 
@@ -172,11 +176,23 @@ a{
     }
 }
 .activites{
-    margin-top: 100px;
+    margin: 100px 20px 100px 20px;
     .sous-titre{
         font-size: 45px;
         text-align: center;
         margin-bottom: 5%;
+    }
+    .coup-coeur{
+        margin-bottom: 3%;
+        .substiles{
+            margin-bottom: 50px;
+        }
+    }
+    .nouveautes{
+        margin-bottom: 3%;
+        .substiles{
+            margin-bottom: 50px;
+        }
     }
 }
 
