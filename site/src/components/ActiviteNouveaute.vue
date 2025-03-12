@@ -134,6 +134,7 @@
         height: 200px;
         border-radius: 50px;
         width: 100%;
+        padding-top: 10px;
         .text{
             text-align: center;
             font-size: 25px;
@@ -141,7 +142,10 @@
         }
         .new{
             margin-left: 25px;
-            padding-top: 10px;
+            background-color: yellow;
+            width: 35%;
+            text-align: center;
+            border-radius: 60px;
         }
     }
     .tag-favoris{

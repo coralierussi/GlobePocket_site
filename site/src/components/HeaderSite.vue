@@ -1,7 +1,7 @@
 <template>
   <main class="header d-flex">
       <div class="logo">
-          <p class="logo-img" src="" alt=""/>
+          <p class="logo-img" src="/site/src/App.vue" alt=""/>
       </div>
       <div class="navbar">
           <li><a class="link-header" href="/main.vue">Accueil</a></li>
