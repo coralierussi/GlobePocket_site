@@ -73,6 +73,7 @@
             <ActiviteNouveaute/>
         </div>
     </div>
+    <FooterSite/>
   </main>
 </template>
 
@@ -80,10 +81,11 @@
 import CoupCoeurs from './components/CoupCoeurs.vue';
 import HeaderSite from './components/HeaderSite.vue';
 import ActiviteNouveaute from './components/ActiviteNouveaute.vue';
+import FooterSite from './components/FooterSite.vue';
 
 export default {
   name: 'App',
-  components: { HeaderSite, CoupCoeurs, ActiviteNouveaute},
+  components: { HeaderSite, CoupCoeurs, ActiviteNouveaute, FooterSite},
   data(){
     return {
 
