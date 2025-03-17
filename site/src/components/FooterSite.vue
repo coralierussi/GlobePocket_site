@@ -12,7 +12,7 @@
                 <a class="link-footer" href="/main.vue">Transports</a>
                 <a class="link-footer" href="/main.vue">Hébergements</a>
                 <a class="link-footer" href="/main.vue">Locations</a>
-                <a class="link-footer" href="/site/src/">Contact</a>
+                <a class="link-footer" href="./Contact.vue">Contact</a>
                 <a class="link-footer" href="/main.vue">Partenaires</a>
                 <a class="link-footer" href="/main.vue">Others</a>
                 <a class="link-footer" href="/main.vue">Others</a>
@@ -49,15 +49,12 @@
   a{
       text-decoration: none;
   }
-//   li{
-//       list-style: none;
-//   }
+
   .footer{
       background-color: #7BB27F;
       width: 100%;
       height: 200px;
       display: grid;
-    //   overflow: hidden;
       .lien{
           .logo{
               width: 25%;

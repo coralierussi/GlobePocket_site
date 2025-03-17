@@ -1,7 +1,9 @@
 <template>
     <main id="contact">
       <HeaderSite/>
-      
+      <div>
+        TEST
+      </div>
       <FooterSite/>
     </main>
   </template>
@@ -11,7 +13,7 @@
   import FooterSite from './components/FooterSite.vue';
   
   export default {
-    name: 'App',
+    name: 'Contact',
     components: { HeaderSite, FooterSite},
     data(){
       return {
@@ -23,11 +25,6 @@
   
   <style sccs scoped>
   
-  *{
-      margin: 0%;
-      padding: 0%;
-  
-  }
   a{
       text-decoration: none;
   }
