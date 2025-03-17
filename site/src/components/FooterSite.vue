@@ -12,7 +12,7 @@
                 <a class="link-footer" href="/main.vue">Transports</a>
                 <a class="link-footer" href="/main.vue">Hébergements</a>
                 <a class="link-footer" href="/main.vue">Locations</a>
-                <a class="link-footer" href="/main.vue">Contact</a>
+                <a class="link-footer" href="/site/src/">Contact</a>
                 <a class="link-footer" href="/main.vue">Partenaires</a>
                 <a class="link-footer" href="/main.vue">Others</a>
                 <a class="link-footer" href="/main.vue">Others</a>
@@ -71,7 +71,7 @@
           }
           .footer-bar{
             text-align: center;
-            width: 50%;
+            width: 80%;
             .link-footer{
                   color: black;
                   padding-right: 5px;

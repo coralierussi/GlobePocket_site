@@ -16,7 +16,7 @@
                     </div>
                 </div>
                 <div class="favoris d-flex">
-                    <img class="img-favoris" src="/assets/favoris.png" alt="Image favoris">
+                    <img class="img-favoris" src=" " alt="Image favoris">
                 </div>
             </div>
             <div class="description">
@@ -42,7 +42,7 @@
                     </div>
                 </div>
                 <div class="favoris d-flex">
-                    <img class="img-favoris" src="/assets/favoris.png" alt="Image favoris">
+                    <img class="img-favoris" src=" " alt="Image favoris">
                 </div>
             </div>
             <div class="description">
@@ -68,7 +68,7 @@
                     </div>
                 </div>
                 <div class="favoris d-flex">
-                    <img class="img-favoris" src="/assets/favoris.png" alt="Image favoris">
+                    <img class="img-favoris" src="/site/src/assets/favoris.png" alt="Image favoris">
                 </div>
             </div>
             <div class="description">
@@ -94,7 +94,7 @@
                     </div>
                 </div>
                 <div class="favoris d-flex">
-                    <img class="img-favoris" src="/assets/favoris.png" alt="Image favoris">
+                    <img class="img-favoris" src=" " alt="Image favoris">
                 </div>
             </div>
             <div class="description">
