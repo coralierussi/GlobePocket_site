@@ -1,21 +1,22 @@
 <template>
     <main class="footer">
-        <div class="lien d-flex">
+        <!-- <div class="lien d-flex"> -->
             <div class="logo">
               <p class="logo-img" src="/site/src/App.vue" alt=""/>
           </div>
             <div class="footer-bar">
-                <a class="link-footer" href="/main.vue">Accueil</a>
-                <a class="link-footer" href="/main.vue">Qui sommes-nous ?</a>
-                <a class="link-footer" href="/main.vue">Pays</a>
-                <a class="link-footer" href="/main.vue">Activités</a>
-                <a class="link-footer" href="/main.vue">Transports</a>
-                <a class="link-footer" href="/main.vue">Hébergements</a>
-                <a class="link-footer" href="/main.vue">Locations</a>
-                <a class="link-footer" href="./Contact.vue">Contact</a>
-                <a class="link-footer" href="/main.vue">Partenaires</a>
-                <a class="link-footer" href="/main.vue">Others</a>
-                <a class="link-footer" href="/main.vue">Others</a>
+                <li><a class="link-footer" href="/main.vue">Accueil</a></li>
+                <li><a class="link-footer" href="/main.vue">Qui sommes-nous ?</a></li>
+                <li><a class="link-footer" href="/main.vue">Pays</a></li>
+                <li><a class="link-footer" href="/main.vue">Activités</a></li>
+                <li><a class="link-footer" href="/main.vue">Transports</a></li>
+                <li><a class="link-footer" href="/main.vue">Hébergements</a></li>
+                <li><a class="link-footer" href="/main.vue">Locations</a></li>
+                <Contact/>
+                <li><a class="link-footer" href="./Contact.vue">Contact</a></li>
+                <li><a class="link-footer" href="/main.vue">Partenaires</a></li>
+                <li><a class="link-footer" href="/main.vue">Others</a></li>
+                <li><a class="link-footer" href="/main.vue">Others</a></li>
             </div>
             <div class="contact">
                 <div class="rs d-flex">
@@ -26,14 +27,18 @@
                 </div>
                 <p class="mail">globePocket@gmail.com</p>
             </div>
-        </div>
+        <!-- </div> -->
         
     </main>
   </template>
   
   <script>
+import ContactSite from './ContactSite.vue';
+
   export default{
           name: 'HeaderSite',
+          components: { ContactSite},
+
           props:{
   
           },
@@ -49,15 +54,17 @@
   a{
       text-decoration: none;
   }
-
+  li{
+    list-style: none;
+}
   .footer{
       background-color: #7BB27F;
       width: 100%;
       height: 200px;
-      display: grid;
-      .lien{
+      display: flex;
+    //   .lien{
           .logo{
-              width: 25%;
+              width: 15%;
               .logo-img{
                   border-radius: 100%;
                   background-color: grey;
@@ -68,19 +75,23 @@
           }
           .footer-bar{
             text-align: center;
-            width: 80%;
+            width: 60%;
+            display: flex;
+            // margin: 0px 10px;
+            // margin-left: auto;
             .link-footer{
-                  color: black;
-                  padding-right: 5px;
+                color: black;
+                padding-right: 5px;
+                width: 100%;
               }
           }
           .contact{
             width: 25%;
+            // margin-left: 40px;
             .mail{
                 text-align: center;
             }
           }
       }
-  }
+//   }
   </style>
-  

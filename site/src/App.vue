@@ -39,7 +39,12 @@
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sit amet  blandit felis, accumsan elementum sem. Donec fermentum feugiat congue.  Nunc eget finibus dolor, id placerat magna. Nullam mauris nisl,  malesuada at urna a, molestie pellentesque lorem. Donec ultrices ornare  eros, ut varius orci malesuada quis. Fusce mattis et erat nec suscipit.  Vestibulum porttitor tellus vitae velit convallis viverra id vel ligula. Nulla et sagittis arcu, ultrices laoreet metus. Vivamus a vehicula  libero, ut tempor nulla. Vivamus pulvinar, turpis id tempor pretium,  tortor ante maximus urna, id euismod risus est et purus.
                         Pellentesque varius posuere rutrum. Sed aliquet lectus id fermentum  tincidunt. Nam consectetur, justo at vulputate bibendum, sem purus  convallis ligula, sed volutpat dui diam sed mauris. In hac habitasse  platea dictumst. Sed eget nulla non nisi efficitur eleifend. Curabitur  viverra congue urna, sit amet gravida nulla gravida in. Nam non nibh in  ex molestie laoreet.
                     </p>
-                    <button type="button" class="btn-service">Voir plus</button>
+                    <button type="button" class="btn-service">
+                        Voir plus
+                        <OrganisationVoyage
+                            
+                        />
+                    </button>
                 </div>
                 <div class="carousel-item">
                     <h4 class="titre-service">Retrouvez les meilleurs prix pour votre voyage</h4>
@@ -82,10 +87,11 @@ import CoupCoeurs from './components/CoupCoeurs.vue';
 import HeaderSite from './components/HeaderSite.vue';
 import ActiviteNouveaute from './components/ActiviteNouveaute.vue';
 import FooterSite from './components/FooterSite.vue';
+import OrganisationVoyage from './components/OrganisationVoyage.vue';
 
 export default {
   name: 'App',
-  components: { HeaderSite, CoupCoeurs, ActiviteNouveaute, FooterSite},
+  components: { HeaderSite, CoupCoeurs, ActiviteNouveaute, FooterSite, OrganisationVoyage},
   data(){
     return {
 

@@ -9,11 +9,11 @@
   </template>
   
   <script>
-  import HeaderSite from './components/HeaderSite.vue';
-  import FooterSite from './components/FooterSite.vue';
+  import HeaderSite from './HeaderSite.vue';
+  import FooterSite from './FooterSite.vue';
   
   export default {
-    name: 'Contact',
+    name: 'ContactSite',
     components: { HeaderSite, FooterSite},
     data(){
       return {
