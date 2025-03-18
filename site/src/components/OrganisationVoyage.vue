@@ -1,6 +1,8 @@
 <template>
-    <v-navigation-drawer>
-        
+    <v-navigation-drawer v-model="slice">
+        <div class="details">
+            
+        </div>
     </v-navigation-drawer>    
 </template>
   

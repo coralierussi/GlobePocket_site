@@ -12,8 +12,7 @@
                 <li><a class="link-footer" href="/main.vue">Transports</a></li>
                 <li><a class="link-footer" href="/main.vue">Hébergements</a></li>
                 <li><a class="link-footer" href="/main.vue">Locations</a></li>
-                <Contact/>
-                <li><a class="link-footer" href="./Contact.vue">Contact</a></li>
+                <li><a class="link-footer" href="./ContactSite.vue">Contact</a></li>
                 <li><a class="link-footer" href="/main.vue">Partenaires</a></li>
                 <li><a class="link-footer" href="/main.vue">Others</a></li>
                 <li><a class="link-footer" href="/main.vue">Others</a></li>
@@ -33,12 +32,9 @@
   </template>
   
   <script>
-import ContactSite from './ContactSite.vue';
 
   export default{
           name: 'HeaderSite',
-          components: { ContactSite},
-
           props:{
   
           },
