@@ -19,9 +19,9 @@
             </div>
             <div class="contact">
                 <div class="rs d-flex">
-                    <img class="img-rs" src="/site/src/assets/instagram.png" alt="Instagram">
-                    <img class="img-rs" src="/site/src/assets/facebook.png" alt="Facebook">
-                    <img class="img-rs" src="/site/src/assets/linkedin.png" alt="Linkedin">
+                    <v-icon class="img-rs"> mdi-instagram</v-icon>
+                    <v-icon class="img-rs">mdi-facebook </v-icon>
+                    <v-icon class="img-rs"> mdi-linkedin</v-icon>
                     <img class="img-rs" src="/site/src/assets/tik-tok.png" alt="TikTok">
                 </div>
                 <p class="mail">globePocket@gmail.com</p>
@@ -54,10 +54,12 @@
     list-style: none;
 }
   .footer{
-      background-color: #7BB27F;
+    background-color: #ACCAB2;
       width: 100%;
       height: 200px;
       display: flex;
+    //   justify-content: center;
+    //   align-items: center;
     //   .lien{
           .logo{
               width: 15%;

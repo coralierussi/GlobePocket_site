@@ -1,9 +1,9 @@
 <template>
     <main id="contact">
       <HeaderSite/>
-      <div>
+      <h1>
         TEST
-      </div>
+      </h1>
       <FooterSite/>
     </main>
   </template>

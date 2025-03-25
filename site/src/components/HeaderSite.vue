@@ -1,7 +1,7 @@
 <template>
   <main class="header d-flex">
       <div class="logo">
-          <p class="logo-img" src="/site/src/App.vue" alt=""/>
+          <p class="logo-img" src="/site/src/App.vue" alt=""> </p>
       </div>
       <div class="navbar">
           <li><a class="link-header" href="/main.vue">Accueil</a></li>
@@ -12,7 +12,7 @@
           <li><a class="link-header" href="/main.vue">Locations</a></li>
       </div>
       <div class="compte">
-          <div class="compte-img"/>
+          <v-icon class="compte-img" > mdi-account</v-icon>
       </div>
   </main>
 </template>
@@ -39,7 +39,7 @@ li{
     list-style: none;
 }
 .header{
-    background-color: #7BB27F;
+    background-color: #ACCAB2;
     width: 100%;
     height: 60px;
     .logo{
@@ -65,8 +65,6 @@ li{
     .compte{
         width: 15%;
         .compte-img{
-            border-radius: 100%;
-            background-color: rgb(34, 34, 204);
             width: 50px;
             height: 50px;
             margin: 5px 10px;

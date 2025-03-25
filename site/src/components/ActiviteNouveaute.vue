@@ -7,24 +7,26 @@
             </div>
             <div class="tag-favoris d-flex">
                 <div class="tag d-flex">
-                    <div class="chips d-flex">
-                        <div class="tag-chips">test</div>
-                        <div class="tag-chips">test</div>
-                        <div class="tag-chips">test</div>
-                        <div class="tag-chips">test</div>
-                        <div class="tag-chips">test</div>
+                    <div class="chips">
+                        <v-chip class="tag-chips">test</v-chip>
+                        <v-chip class="tag-chips">test</v-chip>
+                        <v-chip class="tag-chips">test</v-chip>
+                        <v-chip class="tag-chips">test</v-chip>
+                        <v-chip class="tag-chips">test</v-chip>
+                        <v-chip class="tag-chips">test</v-chip>
                     </div>
                 </div>
                 <div class="favoris d-flex">
-                    <img class="img-favoris" src="" alt="Image favoris">
-                </div>
+                    <button class="btn-favoris">
+                        <v-icon class="img-favoris">mdi-bookmark-outline </v-icon>
+                    </button>                </div>
             </div>
             <div class="description">
                 <p class="text">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam fringilla est nec mi placerat cursus ut vel lorem. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Donec volutpat, purus vitae suscipit vehicula, risus risus vehicula tellus, sed vehicula ipsum dui id nisi. Aliquam metus libero, congue eget consequat mollis, ultrices eu arcu. Morbi tortor neque, egestas ut dictum ut, porttitor vitae sapien. In non tellus sed urna placerat dapibus.
                 </p>
             </div>
-            <button type="button" class="btn-new">Voir plus</button>
+            <v-btn type="button" class="btn-new">Voir plus</v-btn>
         </div>
         <div class="activite-new">
             <div class="img-activite">
@@ -33,24 +35,26 @@
             </div>
             <div class="tag-favoris d-flex">
                 <div class="tag d-flex">
-                    <div class="chips d-flex">
-                        <div class="tag-chips">test</div>
-                        <div class="tag-chips">test</div>
-                        <div class="tag-chips">test</div>
-                        <div class="tag-chips">test</div>
-                        <div class="tag-chips">test</div>
+                    <div class="chips">
+                        <v-chip class="tag-chips">test</v-chip>
+                        <v-chip class="tag-chips">test</v-chip>
+                        <v-chip class="tag-chips">test</v-chip>
+                        <v-chip class="tag-chips">test</v-chip>
+                        <v-chip class="tag-chips">test</v-chip>
+                        <v-chip class="tag-chips">test</v-chip>
                     </div>
                 </div>
                 <div class="favoris d-flex">
-                    <img class="img-favoris" src="" alt="Image favoris">
-                </div>
+                    <button>
+                        <v-icon class="img-favoris">mdi-bookmark-outline </v-icon>
+                    </button>                </div>
             </div>
             <div class="description">
                 <p class="text">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam fringilla est nec mi placerat cursus ut vel lorem. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Donec volutpat, purus vitae suscipit vehicula, risus risus vehicula tellus, sed vehicula ipsum dui id nisi. Aliquam metus libero, congue eget consequat mollis, ultrices eu arcu. Morbi tortor neque, egestas ut dictum ut, porttitor vitae sapien. In non tellus sed urna placerat dapibus.
                 </p>
             </div>
-            <button type="button" class="btn-new">Voir plus</button>
+            <v-btn type="button" class="btn-new">Voir plus</v-btn>
         </div>
         <div class="activite-new">
             <div class="img-activite">
@@ -59,16 +63,19 @@
             </div>
             <div class="tag-favoris d-flex">
                 <div class="tag d-flex">
-                    <div class="chips d-flex">
-                        <div class="tag-chips">test</div>
-                        <div class="tag-chips">test</div>
-                        <div class="tag-chips">test</div>
-                        <div class="tag-chips">test</div>
-                        <div class="tag-chips">test</div>
+                    <div class="chips">
+                        <v-chip class="tag-chips">test</v-chip>
+                        <v-chip class="tag-chips">test</v-chip>
+                        <v-chip class="tag-chips">test</v-chip>
+                        <v-chip class="tag-chips">test</v-chip>
+                        <v-chip class="tag-chips">test</v-chip>
+                        <v-chip class="tag-chips">test</v-chip>
                     </div>
                 </div>
                 <div class="favoris d-flex">
-                    <img class="img-favoris" src="" alt="Image favoris">
+                    <button>
+                        <v-icon class="img-favoris">mdi-bookmark-outline </v-icon>
+                    </button>               
                 </div>
             </div>
             <div class="description">
@@ -76,7 +83,7 @@
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam fringilla est nec mi placerat cursus ut vel lorem. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Donec volutpat, purus vitae suscipit vehicula, risus risus vehicula tellus, sed vehicula ipsum dui id nisi. Aliquam metus libero, congue eget consequat mollis, ultrices eu arcu. Morbi tortor neque, egestas ut dictum ut, porttitor vitae sapien. In non tellus sed urna placerat dapibus.
                 </p>
             </div>
-            <button type="button" class="btn-new">Voir plus</button>
+            <v-btn type="button" class="btn-new">Voir plus</v-btn>
         </div>
         <div class="activite-new">
             <div class="img-activite">
@@ -85,16 +92,19 @@
             </div>
             <div class="tag-favoris d-flex">
                 <div class="tag d-flex">
-                    <div class="chips d-flex">
-                        <div class="tag-chips">test</div>
-                        <div class="tag-chips">test</div>
-                        <div class="tag-chips">test</div>
-                        <div class="tag-chips">test</div>
-                        <div class="tag-chips">test</div>
+                    <div class="chips">
+                        <v-chip class="tag-chips">test</v-chip>
+                        <v-chip class="tag-chips">test</v-chip>
+                        <v-chip class="tag-chips">test</v-chip>
+                        <v-chip class="tag-chips">test</v-chip>
+                        <v-chip class="tag-chips">test</v-chip>
+                        <v-chip class="tag-chips">test</v-chip>
                     </div>
                 </div>
                 <div class="favoris d-flex">
-                    <img class="img-favoris" src="" alt="Image favoris">
+                    <button>
+                        <v-icon class="img-favoris">mdi-bookmark-outline </v-icon>
+                    </button>
                 </div>
             </div>
             <div class="description">
@@ -102,7 +112,7 @@
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam fringilla est nec mi placerat cursus ut vel lorem. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Donec volutpat, purus vitae suscipit vehicula, risus risus vehicula tellus, sed vehicula ipsum dui id nisi. Aliquam metus libero, congue eget consequat mollis, ultrices eu arcu. Morbi tortor neque, egestas ut dictum ut, porttitor vitae sapien. In non tellus sed urna placerat dapibus.
                 </p>
             </div>
-            <button type="button" class="btn-new">Voir plus</button>
+            <v-btn type="button" class="btn-new">Voir plus</v-btn>
         </div>
 
 
@@ -124,6 +134,7 @@
   </script>
   
   <style lang="scss" scoped>
+
   .activite-new{
     background-color: #cac9c9;
     width: 25%;
@@ -143,34 +154,37 @@
         .new{
             margin-left: 25px;
             background-color: yellow;
-            width: 35%;
+            width: 40%;
             text-align: center;
             border-radius: 60px;
         }
     }
     .tag-favoris{
         margin: 5% 0%;
+        align-items: center;
         .tag{
             margin-top: 10px;
             display: flex;
-            width: 80%;
+            width: 95%;
             .chips{
-                width: 40%;
+                width: 100%;
                 .tag-chips{
                     background-color: #f8f6f6;
-                    border-radius: 30px;
-                    margin-right: 10px;
-                    text-align: center;
-                    padding: 0px 3px;
+                    margin: 0px 5px 5px 0px;
+                    width: 30%;
+                    border-radius: 0px;
                 }
             }
         }
         .favoris{
-            width: 20%;
+            width: 5%;
+            .img-favoris{
+                width: 100%;
+            }
         }
     }
     .btn-new{
-        background-color: #b17d7d;
+        background-color: #D54721;
         color: white;
         font-size: 17px;
         width: 50%;
