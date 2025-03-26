@@ -1,19 +1,20 @@
 <template>
     <v-navigation-drawer 
-    v-model="drawer" 
+    v-model="open"
+    fixed
     app
     temporary 
     class= "slice"
-    style="width: 50%;"
-    location= 'right'
+    width = "600"
+    right
     >
         <div class="head">
-            <h3 class="title-slice">Organisation de voyage personnalisé</h3>
+            <h4 class="title-slice">Organisation de voyage personnalisé</h4>
             <button @click="drawer = false">
-                <v-icon  class="icon-head">mdi-close</v-icon>
+                <v-icon class="icon-head">mdi-close</v-icon>
             </button>
         </div>
-        <div>
+        <div class="text-orga">
             <p>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse at lectus aliquam, suscipit leo quis, ornare elit. Donec porta, neque non euismod faucibus, mi est gravida diam, in ultricies tellus nunc ut magna. Maecenas tortor velit, sagittis ullamcorper ante a, aliquam sagittis dolor. Praesent pharetra purus ut augue tempus convallis. In a lectus placerat, consectetur sapien non, dignissim ante. Mauris pretium justo vestibulum lectus tristique posuere. Proin sodales sit amet mauris non bibendum. In in lectus a leo pharetra fringilla ac eget elit. Fusce luctus nunc urna, sit amet commodo libero ullamcorper ut. Integer scelerisque ipsum id urna egestas, nec hendrerit lacus sollicitudin. Phasellus elementum eros non posuere tempus. Sed id risus ligula.
                 Morbi condimentum aliquam est, non consequat erat mollis eget. Aenean in commodo tellus. Proin vel lorem quis risus egestas gravida eu ac libero. Vivamus sed volutpat risus, vel efficitur massa. Nulla id dolor posuere, condimentum ipsum vel, porttitor magna. In non sapien pretium, dignissim eros eget, pulvinar augue. Ut vel ultrices nisi, sed porta mi. Donec placerat tempus vulputate.
@@ -26,25 +27,42 @@
   <script>
   export default{
     name: 'OrganisationVoyage',
-    props: {
-    value: Boolean,
-  },
-  computed: {
-    drawer: {
-      get() {
-        return this.value;
+
+    // props: {
+    //   value: Boolean,
+    // },
+
+    data(){
+        return {
+          open: false,
+        }
       },
-      set(val) {
-        this.$emit("input", val);
-      },
+
+      // watch:{
+      //   open(value){
+      //     if (!value){
+      //       this.close()
+      //     }
+      //   }
+      // },
+
+    created(){
+      setTimeout(() => {
+        this.open = true
+      }, 1)
     },
-  },
-  data(){
-      return {
-      }
-    },
+    
+  methods: {
+    close(){
+      this.open = false
+
+      setTimeout(()=> {
+        this.$emit('cancel')
+      }, 500)
+    }
+  }
 }
-  </script>
+</script>
   
 <style lang="scss" scoped>
 .slice{
@@ -53,13 +71,16 @@
     .head{
         display: flex;
         align-items: center;
+        justify-content: center;
+        margin-bottom: 30px;
+        margin-top: 20px;
         .title-slice{
-            margin-bottom: 50px;
+            // margin-bottom: 50px;
             width: 80%;
-            .icon-head{
-                margin-left: 30px;
-            }
         }
+    }
+    .text-orga{
+      padding-right: 25px;
     }
 }
 </style>
