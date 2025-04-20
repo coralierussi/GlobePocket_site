@@ -2,20 +2,21 @@
     <main class="footer">
         <!-- <div class="lien d-flex"> -->
             <div class="logo">
-              <p class="logo-img" src="/site/src/App.vue" alt=""/>
+              <p class="logo-img" href="/" alt=""/>
           </div>
             <div class="footer-bar">
-                <li><a class="link-footer" href="/main.vue">Accueil</a></li>
-                <li><a class="link-footer" href="/main.vue">Qui sommes-nous ?</a></li>
-                <li><a class="link-footer" href="/main.vue">Pays</a></li>
-                <li><a class="link-footer" href="/main.vue">Activités</a></li>
-                <li><a class="link-footer" href="/main.vue">Transports</a></li>
-                <li><a class="link-footer" href="/main.vue">Hébergements</a></li>
-                <li><a class="link-footer" href="/main.vue">Locations</a></li>
-                <li><a class="link-footer" href="./ContactSite.vue">Contact</a></li>
-                <li><a class="link-footer" href="/main.vue">Partenaires</a></li>
-                <li><a class="link-footer" href="/main.vue">Others</a></li>
-                <li><a class="link-footer" href="/main.vue">Others</a></li>
+                <li><a class="link-footer" href="/">Accueil</a></li>
+                <li><a class="link-footer" href="/presentation">Qui sommes-nous ?</a></li>
+                <li><a class="link-footer" href="/pays">Pays</a></li>
+                <li><a class="link-footer" href="/activite">Activités</a></li>
+                <li><a class="link-footer" href="/transport">Transports</a></li>
+                <li><a class="link-footer" href="/hebergement">Hébergements</a></li>
+                <li><a class="link-footer" href="/location">Locations</a></li>
+                <!-- <router-view href="/ContactSite.vue">Contact</router-view> -->
+                <li><a class="link-footer" href="./contact">Contact</a></li>
+                <li><a class="link-footer" href="/">Partenaires</a></li>
+                <li><a class="link-footer" href="/">Others</a></li>
+                <li><a class="link-footer" href="/">Others</a></li>
             </div>
             <div class="contact">
                 <div class="rs d-flex">
@@ -32,6 +33,7 @@
   </template>
   
   <script>
+
 
   export default{
           name: 'HeaderSite',

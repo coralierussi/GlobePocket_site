@@ -4,12 +4,12 @@
           <p class="logo-img" src="/site/src/App.vue" alt=""> </p>
       </div>
       <div class="navbar">
-          <li><a class="link-header" href="/main.vue">Accueil</a></li>
-          <li><a class="link-header" href="/main.vue">Pays</a></li>
-          <li><a class="link-header" href="/main.vue">Activités</a></li>
-          <li><a class="link-header" href="/main.vue">Transports</a></li>
-          <li><a class="link-header" href="/main.vue">Hébergements</a></li>
-          <li><a class="link-header" href="/main.vue">Locations</a></li>
+        <li><a class="link-footer" href="/">Accueil</a></li>
+        <li><a class="link-footer" href="/pays">Pays</a></li>
+        <li><a class="link-footer" href="/activite">Activités</a></li>
+        <li><a class="link-footer" href="/transport">Transports</a></li>
+        <li><a class="link-footer" href="/hebergement">Hébergements</a></li>
+        <li><a class="link-footer" href="/location">Locations</a></li>
       </div>
       <div class="compte">
           <v-icon class="compte-img" > mdi-account</v-icon>
@@ -34,6 +34,7 @@ export default{
 <style lang="scss" scoped>
 a{
     text-decoration: none;
+    color: black;
 }
 li{
     list-style: none;

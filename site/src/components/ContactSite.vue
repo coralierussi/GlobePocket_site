@@ -1,5 +1,5 @@
 <template>
-    <main id="contact">
+    <main id="contactSite">
       <HeaderSite/>
       <h1>
         TEST
