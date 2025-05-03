@@ -1,7 +1,7 @@
 <template>
   <main class="header d-flex">
       <div class="logo">
-          <p class="logo-img" src="/site/src/App.vue" alt=""> </p>
+          <p class="logo-img" src="../assets/user.png" alt=""> </p>
       </div>
       <div class="navbar">
         <li><a class="link-footer" href="/">Accueil</a></li>
@@ -12,7 +12,7 @@
         <li><a class="link-footer" href="/location">Locations</a></li>
       </div>
       <div class="compte">
-          <v-icon class="compte-img" > mdi-account</v-icon>
+          <v-icon class="compte-img"> mdi-account</v-icon>
       </div>
   </main>
 </template>
