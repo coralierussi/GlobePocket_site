@@ -1,4 +1,5 @@
 <template>
+  <v-app>
     <main id="contactSite">
       <HeaderSite/>
       <h1 class="titre">Nous contacter</h1>
@@ -112,12 +113,16 @@
               <input placeholder="Email" type="email" id="email" name="email" required>
             </div>
             <div class="input">
-              <v-select placeholder="Sélectionner un sujet" name="selectSujet" required
-                :items="sujet" v-model="selected" item-text="name" item-value="value" label="Sujet"
-              ></v-select>
+              <v-select 
+                placeholder="Sélectionner un sujet" 
+                hide-details
+                :items="sujets" 
+                v-model="selected"
+                style="background-color: #F2F2F2; padding-left: 6px;"
+                :menu-props="{ offsetY: true }"
+                />
             </div>
             <div class="input">
-              <!-- <label for="message">Message</label> -->
               <textarea placeholder="Message" id="message" name="message" required></textarea>
             </div>
           
@@ -127,7 +132,8 @@
       </div>
       <FooterSite/>
     </main>
-  </template>
+  </v-app>
+</template>
   
   <script>
   import HeaderSite from './HeaderSite.vue';
@@ -138,24 +144,13 @@
     components: { HeaderSite, FooterSite},
     data(){
       return {
-        sujet : [
-          {
-            name: "reservation",
-            value: "resevation",
-          },
-          {
-            name: " annulation",
-            value: "annulation",
-          },
-          {
-            name: "remboursement",
-            value: "remboursement",
-          },
-          {
-            name: "information",
-            value: "information",
-          },
-      ],
+        sujets : [
+          'Réservation', 
+          'Annulation',
+          'Remboursement',
+          'Information',
+        ],
+      selected: null,
       }
     },
   }
@@ -200,6 +195,7 @@
   }
   .questions{
     width: 100%;
+    padding-bottom: 40px;
     .faq{
       width: 50%;
       margin: 0% 2%;
