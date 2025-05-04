@@ -10,7 +10,7 @@
     >
         <div class="head">
             <h4 class="title-slice">Organisation de voyage personnalisé</h4>
-            <button @click="drawer = false">
+            <button @click="close">
                 <v-icon class="icon-head">mdi-close</v-icon>
             </button>
         </div>
@@ -28,39 +28,30 @@
   export default{
     name: 'OrganisationVoyage',
 
-    // props: {
-    //   value: Boolean,
-    // },
-
-    data(){
-        return {
-          open: false,
-        }
-      },
-
-      // watch:{
-      //   open(value){
-      //     if (!value){
-      //       this.close()
-      //     }
-      //   }
-      // },
-
-    created(){
-      setTimeout(() => {
-        this.open = true
-      }, 1)
+    props: {
+      value: {
+        type: Boolean,
+        default: false
+      }
     },
-    
+    data() {
+    return {
+      open: this.value, // Initialiser `open` avec la prop `value`
+    };
+  },
+  watch: {
+    value(val) {
+      this.open = val; // Lorsque la prop `value` change, on synchronise `open`
+    },
+    open(val) {
+      this.$emit('input', val); // Lors du changement de `open`, on émet l'événement pour propager la modification
+    },
+  },
   methods: {
-    close(){
-      this.open = false
-
-      setTimeout(()=> {
-        this.$emit('cancel')
-      }, 500)
-    }
-  }
+    close() {
+      this.open = false; // Fermer le drawer à la demande de l'utilisateur
+    },
+  },
 }
 </script>
   
@@ -75,7 +66,6 @@
         margin-bottom: 30px;
         margin-top: 20px;
         .title-slice{
-            // margin-bottom: 50px;
             width: 80%;
         }
     }
