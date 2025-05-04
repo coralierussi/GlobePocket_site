@@ -37,8 +37,8 @@
         
     </div>
     <div class="legale d-flex">
-        <a href="/mentionLegales">
-            <p>Mentions légales</p>
+        <a class="ML" href="/mentionLegales">
+            <p >Mentions légales</p>
         </a>
         <a href="/politiqueConfidentialite">
             <p>Politique de confidentialité</p>
@@ -113,15 +113,19 @@ a{
     }
     }
     .legale{
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      margin: 30px 0px 5px 10px;
-      p{
-          color: black;
-          font-size: 12px;
-          margin: 0px 5px;
-      }
+        border-top: solid 1px grey;
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        margin: 30px 0px 5px 0px;
+        .ML{
+            margin-left: 10px;
+        }
+        p{
+            color: black;
+            font-size: 12px;
+            margin: 0px 5px;
+        }
     }
 }
 

@@ -4,12 +4,12 @@
           <p class="logo-img" src="../assets/user.png" alt=""> </p>
       </div>
       <div class="navbar">
-        <li><a class="link-footer" href="/">Accueil</a></li>
-        <li><a class="link-footer" href="/pays">Pays</a></li>
-        <li><a class="link-footer" href="/activite">Activités</a></li>
-        <li><a class="link-footer" href="/transport">Transports</a></li>
-        <li><a class="link-footer" href="/hebergement">Hébergements</a></li>
-        <li><a class="link-footer" href="/location">Locations</a></li>
+        <a class="link-header" href="/">Accueil</a>
+        <a class="link-header" href="/pays">Pays</a>
+        <a class="link-header" href="/activite">Activités</a>
+        <a class="link-header" href="/transport">Transports</a>
+        <a class="link-header" href="/hebergement">Hébergements</a>
+        <a class="link-header" href="/location">Locations</a>
       </div>
       <div class="compte">
           <v-icon class="compte-img"> mdi-account</v-icon>
@@ -35,9 +35,6 @@ export default{
 a{
     text-decoration: none;
     color: black;
-}
-li{
-    list-style: none;
 }
 .header{
     background-color: #ACCAB2;
