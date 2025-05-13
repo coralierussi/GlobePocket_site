@@ -2,20 +2,26 @@
     <main class="main">
         <div class="footer d-flex">
             <div class="logo">
-              <p class="logo-img" href="/" alt=""/>
+                <a href="/">
+                    <img class="logo-img" src="../assets/Logo/logo original@4x.png" alt="">
+                </a>
+            </div>
+            <div class="footer-bar-globePocket">
+                <p class="titre-footer">Globe Pocket</p>
+                <li><a class="link-footer" href="/presentation">Qui sommes-nous ?</a> </li>
+                <li><a class="link-footer" href="/pays">Nous rejoindre</a></li>
+                <li><a class="link-footer" href="/activite">Conditions générales</a></li>
+            </div>
+            <div class="footer-bar-contact">
+                <p class="titre-footer">Contacts</p>
+                <li> <a class="link-footer" href="/presentation">Aide/FAQ</a></li>
+                <li> <a class="link-footer" href="/contact">Contactez-nous</a> </li>
+                <li><a class="link-footer" href="/paiementPage">Paiements sécurisés</a> </li>
             </div>
             <div class="footer-bar">
-                <a class="link-footer" href="/">Accueil</a>
-                <a class="link-footer" href="/presentation">Qui sommes-nous ?</a>
-                <a class="link-footer" href="/pays">Pays</a>
-                <a class="link-footer" href="/activite">Activités</a>
-                <a class="link-footer" href="/transport">Transports</a>
-                <a class="link-footer" href="/hebergement">Hébergements</a>
-                <a class="link-footer" href="/location">Locations</a>
-                <a class="link-footer" href="./contact">Contact</a>
-                <a class="link-footer" href="/">Partenaires</a>
-                <a class="link-footer" href="/">Others</a>
-                <a class="link-footer" href="/">Others</a>
+                <li><a class="link-footer" href="/mentionLegales">Mentions légales</a></li>
+                <li><a class="link-footer" href="/politique">Politique cookies</a></li>
+                <li><a class="link-footer" href="/donneesPersonnel">Charte des données personnelles</a></li>
             </div>
             <div class="contact">
                     <div class="rs d-flex">
@@ -36,15 +42,15 @@
             </div>
         
     </div>
-    <div class="legale d-flex">
-        <a class="ML" href="/mentionLegales">
+    <div class="legale">
+        <!-- <a class="ML" href="/mentionLegales">
             <p >Mentions légales</p>
         </a>
         <a href="/politiqueConfidentialite">
             <p>Politique de confidentialité</p>
-        </a>
-            <p>Copyright <v-icon> mdi-copyright</v-icon> 2025 GlobePocket. Tous droits réservés.</p>
-        </div>
+        </a> -->
+            <p> <v-icon> mdi-copyright</v-icon> 2025 GlobePocket. Tous droits réservés.</p>
+    </div>
     </main>
     
   </template>
@@ -67,7 +73,6 @@ a{
     text-decoration: none;
 }
 .main{
-    background-color: #ACCAB2;
     width: 100%;
     overflow-y: hidden;
     margin-top: 60px;
@@ -76,21 +81,19 @@ a{
       width: 15%;
       margin-top: 10px;
       .logo-img{
-          border-radius: 100%;
-          background-color: grey;
-          width: 50px;
-          height: 50px;
+          width: 120px;
           margin: 5px;
       }
     }
-    .footer-bar{
-      margin-top: 10px;
-      display: flex;
-      flex-wrap: wrap; // permet le retour à la ligne
-      justify-content: center; // centre les liens
-      gap: 1rem; // espace entre les liens
-      height: 70px;
-      .link-footer{
+    .footer-bar-globePocket, .footer-bar-contact, .footer-bar{
+        margin-top: 10px;
+        width: 21%;
+        list-style: none;
+        .titre-footer{
+            color: #EAA854;
+            font-weight: 650;
+        }
+        .link-footer{
           color: black;
           padding: 0rem 0.5rem;
         }

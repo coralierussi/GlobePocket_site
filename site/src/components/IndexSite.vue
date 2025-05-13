@@ -1,81 +1,26 @@
 <template>
     <main id="indexSite">
         <HeaderSite/>
-        <div class="presentation">
-            <div class="carousel">            
-                <div class="carousel-slide" data-bs-ride="carousel">
-                  <div class="carousel-inner">
-                    <div class="carousel-item active" data-bs-interval="5000">
-                      <img src="../assets/voyage-2.png" class="d-block w-100">
-                    </div>
-                    <div class="carousel-item" data-bs-interval="5000">
-                      <img src="../assets/voyage-1.png" class="d-block w-100">
-                    </div>
-                  </div>
+        
+        <div class="img-presentation">
+            <img class="img-montagne" src="../assets/Photos site/header.jpeg" alt="Image montagne" >
+            <div class="text-presentation">
+                <h1>
+                    <!-- <img src="" alt=""> -->
+                    Le combo parfait :
+                </h1>
+                <h1>bons plans, vrais gens, vrais conseils</h1>
+            </div>
+            <div class="video-presentation d-flex">
+                <div class="lien-video">
+                    <span>1 minute de vidéo</span>
+                    <a href="">
+                        <p>pour TOUT comprendre</p>
+                    </a>
                 </div>
-                <div class="en-tete">
-                    <p class="title">Suivez vos envies</p>
+                <div class="fleche">
+                    <v-icon class="fleche-icon">mdi-redo</v-icon>
                 </div>
-            </div>
-        </div>
-        <div class="globe">
-            <div class="texte">
-                <span>Vous ne savez pas où partir ?</span>
-                <br>
-                <span>Cliquez ici -></span>
-            </div>
-            <div class="img">
-                <img class="img-globe" src="../assets/earth.jpg" alt="">
-            </div>
-        </div>
-        <div class="services">
-            <p class="sous-titre">Nos services</p>
-            <div class="carousel">
-                <div id="carouselExampleCaptions" class="carousel slide">
-                  <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <h4 class="titre-service">Organisation de voyage personnalisé</h4>
-                        <p class="text-service"> 
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sit amet  blandit felis, accumsan elementum sem. Donec fermentum feugiat congue.  Nunc eget finibus dolor, id placerat magna. Nullam mauris nisl,  malesuada at urna a, molestie pellentesque lorem. Donec ultrices ornare  eros, ut varius orci malesuada quis. Fusce mattis et erat nec suscipit.  Vestibulum porttitor tellus vitae velit convallis viverra id vel ligula. Nulla et sagittis arcu, ultrices laoreet metus. Vivamus a vehicula  libero, ut tempor nulla. Vivamus pulvinar, turpis id tempor pretium,  tortor ante maximus urna, id euismod risus est et purus.
-                            Pellentesque varius posuere rutrum. Sed aliquet lectus id fermentum  tincidunt. Nam consectetur, justo at vulputate bibendum, sem purus  convallis ligula, sed volutpat dui diam sed mauris. In hac habitasse  platea dictumst. Sed eget nulla non nisi efficitur eleifend. Curabitur  viverra congue urna, sit amet gravida nulla gravida in. Nam non nibh in  ex molestie laoreet.
-                        </p>
-                        <v-btn type="button" class="btn-service" @click="showOrgaVoyage = true">
-                          Voir plus
-                        </v-btn>
-                    
-                        <OrganisationVoyage 
-                          v-model="showOrgaVoyage" 
-                        />
-                    </div>
-                    <div class="carousel-item">
-                        <h4 class="titre-service">Retrouvez les meilleurs prix pour votre voyage</h4>
-                        <p class="text-service">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sit amet  blandit felis, accumsan elementum sem. Donec fermentum feugiat congue.  Nunc eget finibus dolor, id placerat magna. Nullam mauris nisl,  malesuada at urna a, molestie pellentesque lorem. Donec ultrices ornare  eros, ut varius orci malesuada quis. Fusce mattis et erat nec suscipit.  Vestibulum porttitor tellus vitae velit convallis viverra id vel ligula. Nulla et sagittis arcu, ultrices laoreet metus. Vivamus a vehicula  libero, ut tempor nulla. Vivamus pulvinar, turpis id tempor pretium,  tortor ante maximus urna, id euismod risus est et purus.
-                            Pellentesque varius posuere rutrum. Sed aliquet lectus id fermentum  tincidunt. Nam consectetur, justo at vulputate bibendum, sem purus  convallis ligula, sed volutpat dui diam sed mauris. In hac habitasse  platea dictumst. Sed eget nulla non nisi efficitur eleifend. Curabitur  viverra congue urna, sit amet gravida nulla gravida in. Nam non nibh in  ex molestie laoreet.
-                        </p>
-                        <v-btn type="button" class="btn-service">Voir plus</v-btn>
-                    </div>
-                  </div>
-                  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Previous</span>
-                  </button>
-                  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Next</span>
-                  </button>
-                </div>
-            </div>
-        </div>
-        <div class="activites">
-            <p class="sous-titre">Nos activités</p>
-            <div class="coup-coeur">
-                <h4 class="substiles">Les coups de coeurs</h4>
-                <CoupCoeurs/> 
-            </div>
-            <div class="nouveautes">
-                <h4 class="substiles">Les nouveautés</h4>
-                <ActiviteNouveaute/>
             </div>
         </div>
 
@@ -84,18 +29,18 @@
   </template>
   
   <script>
-  import CoupCoeurs from './CoupCoeurs.vue';
+//   import CoupCoeurs from './CoupCoeurs.vue';
   import HeaderSite from './HeaderSite.vue';
-  import ActiviteNouveaute from './ActiviteNouveaute.vue';
+//   import ActiviteNouveaute from './ActiviteNouveaute.vue';
   import FooterSite from './FooterSite.vue';
-  import OrganisationVoyage from './OrganisationVoyage.vue';
+//   import OrganisationVoyage from './OrganisationVoyage.vue';
   
   export default {
     name: 'IndexSite',
-    components: { HeaderSite, CoupCoeurs, ActiviteNouveaute, FooterSite, OrganisationVoyage},
+    components: { HeaderSite, FooterSite},
     data(){
       return {
-        showOrgaVoyage: false,
+        // showOrgaVoyage: false,
       }
     },
     methods: {
@@ -105,124 +50,88 @@
   
 <style sccs scoped>
   
-  *{
-      margin: 0%;
-      padding: 0%;
-  
-  }
-  a{
-      text-decoration: none;
-  }
-  .presentation{
-      .carousel {
-          display: flex;
-          position: relative;
-          animation: slide 4s infinite alternate ease-in-out;
-          z-index: -1;
-      }
-      .carousel img {
-          width: 100%;
-          height: auto;
-      }
-      .en-tete{
-          position: absolute;
-          width: 40%;
-          background-color: rgb(158, 158, 158);
-          border-radius: 50px;
-          z-index: 10;
-          margin: 20% 30%;
-          .title{
-              color: white;
-              font-size: 300%;
-              text-align: center;
-          }
-      }
-  }
-  .globe{
-      margin-top: 100px;
-      display: flex;
-      .texte{
-          padding-top: 125px;
-          text-align: center;
-          width: 60%;
+*{
+    margin: 0%;
+    padding: 0%;
+
+}
+a{
+    text-decoration: none;
+}
+.img-presentation {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    .img-montagne {
+      width: 100%;
+      height: 100%;
+      object-fit: cover; 
+      object-position: center; 
+      display: block;
+    }
+    .text-presentation {
+        position: absolute;
+        top: 30%;
+        left: 50%;
+        transform: translate(-50%, -50%); 
+        color: white;
+        text-align: center;
+        width: 100%;
+        z-index: 10; 
+        h1 {
           font-size: 50px;
-      }
-      .img{
-          width: 40%;
-          .img-globe{
-              width: 80%;
+          font-weight: 700;
+        }
+    }
+    .video-presentation {
+        position: absolute;
+        bottom: 90px;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 10;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        color: white;
+        text-align: center;
+        
+
+        .lien-video {
+          background-color: #c55230;
+          padding: 10px 20px;
+          border-radius: 10px;
+
+          p {
+            margin: 0;
+            font-size: 1.2rem;
+
           }
-      }
-  }
-  .services{
-      margin-top: 100px;
-      .sous-titre{
-          font-size: 45px;
-          text-align: center;
-          margin-bottom: 5%;
-      }
-      .carousel{
-        .carousel-inner {
-          height: 325px;
-          .carousel-item{
-            background-color: #D9D9D9;
-            transition: transform 1s ease, opacity 0.5s ease;
-            .titre-service{
-                text-align: center;
-                padding-bottom: 2%;
-                padding-top: 1%;
-                font-weight: 600;
-            }
-            .text-service{
-                padding: 0% 8% 3% 8%;
-            }
-            .btn-service{
-              background-color: #D54721;
-              color: white;
-                font-size: 17px;
-                width: 10%;
-                margin-bottom: 2%;
-                border-radius: 20px;
-                border: none;
-                margin-left: 45%;
-            }
-            .slice{
-              /* border: 1px solid black; */
-              padding: 5px 20px;
-              width: 100%;
-              height: 200px;
-              .head{
-                  display: flex;
-                  .title-slice{
-                      margin-bottom: 20px;
-                      width: 80%;
-                  }
-              }
-            }
+          span{
+            font-size: 1.2rem;
+            font-weight: bold;
+          }
+
+          a {
+            color: #fff;
+            text-decoration: underline;
           }
         }
-          
-      }
-  }
-  .activites{
-      margin: 100px 20px 100px 20px;
-      .sous-titre{
-          font-size: 45px;
-          text-align: center;
-          margin-bottom: 5%;
-      }
-      .coup-coeur{
-          margin-bottom: 3%;
-          .substiles{
-              margin-bottom: 50px;
+        .fleche {
+           position: absolute;
+            bottom: 30px;
+            left: 120%;
+            transform: translateX(-50%);
+            z-index: 10;
+
+          .fleche-icon {
+            transform: rotate(140deg);
+            color: #c55230;
+            width: 70px;
+            font-size: 70px; 
           }
-      }
-      .nouveautes{
-          margin-bottom: 3%;
-          .substiles{
-              margin-bottom: 50px;
-          }
-      }
-  }
+        }
+    }
+}
   
   </style>
