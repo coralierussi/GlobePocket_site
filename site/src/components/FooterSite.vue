@@ -43,13 +43,7 @@
         
     </div>
     <div class="legale">
-        <!-- <a class="ML" href="/mentionLegales">
-            <p >Mentions légales</p>
-        </a>
-        <a href="/politiqueConfidentialite">
-            <p>Politique de confidentialité</p>
-        </a> -->
-            <p> <v-icon> mdi-copyright</v-icon> 2025 GlobePocket. Tous droits réservés.</p>
+        <p> <v-icon> mdi-copyright</v-icon> 2025 GlobePocket. Tous droits réservés.</p>
     </div>
     </main>
     

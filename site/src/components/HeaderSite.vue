@@ -57,9 +57,25 @@
         </a>
       </div>
       <div class="compte">
-        <v-icon class="compte-img">mdi-magnify</v-icon>
-        <v-icon class="compte-img">mdi-cart-outline</v-icon>
-        <v-icon class="compte-img">mdi-account-circle-outline</v-icon>
+        <a href="">
+            <v-icon class="compte-img">mdi-magnify</v-icon>
+        </a>
+        <a href="/panier">
+            <v-icon class="compte-img">mdi-cart-outline</v-icon>
+        </a>
+        <a href="/connection" @mouseenter="openCompte = true" @mouseleave="openCompte = false">
+            <v-icon class="compte-img">mdi-account-circle-outline</v-icon>
+            <ul v-if="openCompte" class="submenuCompte">
+                <div class="free">
+                    <li><a href="/comptePage">Mon compte</a></li>
+                    <li><a href="/rdv">Mes rendez-vous</a></li>
+                    <li><a href="/favoris">Mes favoris</a></li>
+                    <div class="separator"></div>
+                    <li><a href="/desinscription">Se désinscrire</a></li>
+                    <li><a href="/parametres">Paramètres</a></li>
+                </div>
+            </ul>
+        </a>
       </div>
   </main>
 </template>
@@ -75,6 +91,7 @@ export default{
                 openVoyage: false,
                 openCommunaute: false,
                 openPresentation: false,
+                openCompte: false,
             }
         }
     }
@@ -86,7 +103,7 @@ a{
     color: black;
 }
 .header {
-  background-color: transparent !important;
+  background-color: rgba(0, 0, 0, 0.2);
   position: absolute; 
   top: 0;
   left: 0;
@@ -165,6 +182,23 @@ a{
         height: 50px;
         float: right;
         color: white;
+    }
+    .submenuCompte{
+        list-style: none;
+        position: absolute;
+        margin-top: 10px;
+        font-weight: 400;
+        top: 60%;
+        right: 5px;
+        background: #f9f9f9;
+        padding: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        min-width: 100px;
+        z-index: 100;
+        .separator {
+            margin: 10px 0px;
+            border-top: 1px solid rgba(0, 0, 0, 0.5)
+        }
     }
   }
 }

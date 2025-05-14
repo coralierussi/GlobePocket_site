@@ -9,6 +9,11 @@ export default new VueRouter ({
             path: '/ContactSite',
             name :'ContactSite',
             component: () => import("@/components/ContactSite.vue")
+        },
+        {
+            path: '/ConnectionSite',
+            name :'ConnectionSite',
+            component: () => import("@/components/ConnectionSite.vue")
         }
     ]
 })
