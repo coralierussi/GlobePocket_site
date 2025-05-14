@@ -5,8 +5,8 @@
           <img class="logo-img" src="../assets/Logo/Logo blanc@4x.png" alt="">
         </a>
       </div>
-      <div class="navbar">
-        <a class="link-header" href="/voyage" @mouseenter="openVoyage = true" @mouseleave="openVoyage = false">
+      <div class="navbar" v-click-outside="handleClickOutside">
+        <a class="link-header" href="#"  @click.prevent="toggleVoyage" >
             Mon voyage
             <ul v-if="openVoyage" class="submenu">
                 <div class="free">
@@ -17,7 +17,9 @@
                     <li><a href="/reservationGestion">Gérer ma réservation</a></li>
                 </div>
                 <div class="premium">
-                    <v-icon>mdi-crown-outline</v-icon>
+                    <div class="icon-container">
+                      <v-icon class="icon-premium">mdi-crown-outline</v-icon>
+                    </div>
                     <li><a href="/voyageMesure">Créer mon voyage sur-mesure</a></li>
                     <li><a href="/voyageProgramme">Programme de mon voyage</a></li>
                     <li><a href="/assurance">Assurance H24 7/7</a></li>
@@ -25,7 +27,7 @@
             </ul>
         </a>
 
-        <a class="link-header" href="/communaute" @mouseenter="openCommunaute = true" @mouseleave="openCommunaute = false">
+        <a class="link-header" href="#"  @click.prevent="toggleCommunaute" >
             Notre communauté
             <ul v-if="openCommunaute" class="submenu">
                 <div class="free">
@@ -35,14 +37,16 @@
                     <li><a href="/vlogsChallenges">Vlogs et challenges</a></li>
                 </div>
                 <div class="premium">
-                    <v-icon>mdi-crown-outline</v-icon>
+                    <div class="icon-container">
+                      <v-icon class="icon-premium">mdi-crown-outline</v-icon>
+                    </div>
                     <li><a href="/discuteCommunaute">Discute avec notre communauté</a></li>
                     <li><a href="/mapsCommunaute">Maps communautaire</a></li>
                     <li><a href="/shareExperience">Partage ton expérience</a></li>
                 </div>
             </ul>
         </a>
-        <a class="link-header" href="/presentation" @mouseenter="openPresentation = true" @mouseleave="openPresentation = false">
+        <a class="link-header" href="#"  @click.prevent="togglePresentation" >
             Qui sommes-nous ?
             <ul v-if="openPresentation" class="submenuPresentation">
                 <div class="free">
@@ -93,6 +97,28 @@ export default{
                 openPresentation: false,
                 openCompte: false,
             }
+        },
+         methods: {
+            toggleVoyage() {
+                this.openVoyage = !this.openVoyage;
+                this.openCommunaute = false;
+                this.openPresentation = false;
+            },
+            handleClickOutside() {
+                this.openVoyage = false;
+                this.openCommunaute = false;
+                this.openPresentation = false;
+            },
+            toggleCommunaute() {
+                this.openCommunaute = !this.openCommunaute;
+                this.openVoyage = false;
+                this.openPresentation = false;
+            },
+            togglePresentation() {
+                this.openPresentation = !this.openPresentation;
+                this.openVoyage = false;
+                this.openCommunaute = false;
+            },
         }
     }
 </script>
@@ -131,7 +157,7 @@ a{
       position: relative;
 
       .submenu {
-        display: flex;
+        // display: flex;
         list-style: none;
         position: absolute;
         font-weight: 400;
@@ -141,16 +167,24 @@ a{
         transform: translateX(-50%);
         background: #f9f9f9;
         padding: 10px;
-        min-width: 200px;
-        width: 450px;
+        min-width: 100px;
+        width: 250px;
         z-index: 100;
 
         .free {
-          padding-right: 10px;
-          border-right: 1px solid #ccc;
+          padding-bottom: 10px;
+          border-bottom: 1px solid rgba(0, 0, 0, 0.5);
         }
         .premium {
-          padding-left: 15px;
+            .icon-container {
+                 display: flex;
+                 justify-content: center;
+                 margin-bottom: 8px;
+                 .icon-premium {
+                  font-size: 30px;
+                  color: #c55230;
+                }
+            }
         }
       }
 

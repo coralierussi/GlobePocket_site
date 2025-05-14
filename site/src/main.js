@@ -4,6 +4,11 @@ import VueRouter from 'vue-router'
 import App from './App.vue'
 import IndexSite from './components/IndexSite.vue'
 import ContactSite from './components/ContactSite.vue'
+import ConnectionSite from './components/ConnectionSite.vue'
+import ActivitesPage from './components/ActivitesPage.vue'
+import HebergementsPage from './components/HebergementsPage.vue'
+import TransportsPage from './components/TransportsPage.vue'
+import ValiseSite from './components/ValiseSite.vue'
 
 
 Vue.use(VueRouter)
@@ -21,6 +26,26 @@ const router = new VueRouter({
     {
       path: '/contact',
       component: ContactSite
+    },
+    {
+      path: '/connection',
+      component: ConnectionSite
+    },
+    {
+      path: '/activites',
+      component: ActivitesPage
+    },
+    {
+      path: '/hebergement',
+      component: HebergementsPage
+    },
+    {
+      path: '/transport',
+      component: TransportsPage
+    },
+    {
+      path: '/maValise',
+      component: ValiseSite
     },
 ]
 })
