@@ -1,14 +1,14 @@
 import Vue from 'vue'
 import Vuetify from 'vuetify'
-import VueRouter from 'vue-router'
 import App from './App.vue'
-import IndexSite from './components/IndexSite.vue'
-import ContactSite from './components/ContactSite.vue'
-import ConnectionSite from './components/ConnectionSite.vue'
 import ActivitesPage from './components/ActivitesPage.vue'
+import ConnectionSite from './components/ConnectionSite.vue'
+import ContactSite from './components/ContactSite.vue'
 import HebergementsPage from './components/HebergementsPage.vue'
+import IndexSite from './components/IndexSite.vue'
 import TransportsPage from './components/TransportsPage.vue'
 import ValiseSite from './components/ValiseSite.vue'
+import VueRouter from './router'
 
 
 Vue.use(VueRouter)
