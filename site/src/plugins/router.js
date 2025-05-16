@@ -14,6 +14,11 @@ export default new VueRouter ({
             path: '/ConnectionSite',
             name :'ConnectionSite',
             component: () => import("@/components/ConnectionSite.vue")
+        },
+        {
+            path: '/ActivitesPage',
+            name :'ActivitesPage',
+            component: () => import("@/components/ActivitesPage.vue")
         }
     ]
 })

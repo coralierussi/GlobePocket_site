@@ -6,7 +6,7 @@
         </a>
       </div>
       <div class="navbar" v-click-outside="handleClickOutside">
-        <a class="link-header" href="#"  @click.prevent="toggleVoyage" >
+        <div class="link-header" href="#"  @click.prevent="toggleVoyage" >
             Mon voyage
             <ul v-if="openVoyage" class="submenu">
                 <div class="free">
@@ -25,9 +25,9 @@
                     <li><a href="/assurance">Assurance H24 7/7</a></li>
                 </div>
             </ul>
-        </a>
+        </div>
 
-        <a class="link-header" href="#"  @click.prevent="toggleCommunaute" >
+        <div class="link-header" href="#"  @click.prevent="toggleCommunaute" >
             Notre communauté
             <ul v-if="openCommunaute" class="submenu">
                 <div class="free">
@@ -45,8 +45,8 @@
                     <li><a href="/shareExperience">Partage ton expérience</a></li>
                 </div>
             </ul>
-        </a>
-        <a class="link-header" href="#"  @click.prevent="togglePresentation" >
+        </div>
+        <div class="link-header" href="#"  @click.prevent="togglePresentation" >
             Qui sommes-nous ?
             <ul v-if="openPresentation" class="submenuPresentation">
                 <div class="free">
@@ -58,28 +58,28 @@
                     <li><a href="/contact">Contactez-nous</a></li>
                 </div>
             </ul>
-        </a>
+        </div>
       </div>
       <div class="compte">
-        <a href="">
+        <a class="link-compte" href="">
             <v-icon class="compte-img">mdi-magnify</v-icon>
         </a>
-        <a href="/panier">
+        <a class="link-compte" href="/panier">
             <v-icon class="compte-img">mdi-cart-outline</v-icon>
         </a>
-        <a href="/connection" @mouseenter="openCompte = true" @mouseleave="openCompte = false">
+        <a class="link-compte" href="/connection" @click.prevent="toogleCompte">
             <v-icon class="compte-img">mdi-account-circle-outline</v-icon>
-            <ul v-if="openCompte" class="submenuCompte">
-                <div class="free">
-                    <li><a href="/comptePage">Mon compte</a></li>
-                    <li><a href="/rdv">Mes rendez-vous</a></li>
-                    <li><a href="/favoris">Mes favoris</a></li>
-                    <div class="separator"></div>
-                    <li><a href="/desinscription">Se désinscrire</a></li>
-                    <li><a href="/parametres">Paramètres</a></li>
-                </div>
-            </ul>
-        </a>
+          </a>
+          <ul v-if="openCompte" class="submenuCompte">
+              <div class="free">
+                  <li><a href="/comptePage">Mon compte</a></li>
+                  <li><a href="/rdv">Mes rendez-vous</a></li>
+                  <li><a href="/favoris">Mes favoris</a></li>
+                  <div class="separator"></div>
+                  <li><a href="/desinscription">Se désinscrire</a></li>
+                  <li><a href="/parametres">Paramètres</a></li>
+              </div>
+          </ul>
       </div>
   </main>
 </template>
@@ -99,26 +99,36 @@ export default{
             }
         },
          methods: {
+          handleClickOutside() {
+                this.openVoyage = false;
+                this.openCommunaute = false;
+                this.openPresentation = false;
+                this.openCompte = false;
+            },
             toggleVoyage() {
                 this.openVoyage = !this.openVoyage;
                 this.openCommunaute = false;
                 this.openPresentation = false;
-            },
-            handleClickOutside() {
-                this.openVoyage = false;
-                this.openCommunaute = false;
-                this.openPresentation = false;
+                this.openCompte = false;
             },
             toggleCommunaute() {
                 this.openCommunaute = !this.openCommunaute;
                 this.openVoyage = false;
                 this.openPresentation = false;
+                this.openCompte = false;
             },
             togglePresentation() {
                 this.openPresentation = !this.openPresentation;
                 this.openVoyage = false;
                 this.openCommunaute = false;
+                this.openCompte = false;
             },
+            toggleCompte() {
+                this.openCompte = !this.openCompte;
+                this.openVoyage = false;
+                this.openCommunaute = false;
+                this.openPresentation = false;
+            }
         }
     }
 </script>
@@ -128,36 +138,32 @@ a{
     text-decoration: none;
     color: black;
 }
+li{
+    list-style: none;
+    color: black;
+}
 .header {
   background-color: rgba(0, 0, 0, 0.2);
-  position: absolute; 
-  top: 0;
-  left: 0;
   width: 100%;
   height: 100px;
-  z-index: 1000; 
-
   .logo {
-    width: 20%;
+    width: 250px;
     .logo-img {
       width: 55%;
       margin: 10px;
     }
   }
-
   .navbar {
     display: flex;
     margin-right: 80px;
     width: 50%;
-
     .link-header {
+      cursor: pointer;
       color: white;
       font-weight: 700;
       margin: 0%;
       position: relative;
-
       .submenu {
-        // display: flex;
         list-style: none;
         position: absolute;
         font-weight: 400;
@@ -210,30 +216,36 @@ a{
     margin: 5px 0px;
     justify-content: flex-end;
     align-items: center;
+    .link-compte{
 
-    .compte-img {
-        width: 50px;
-        height: 50px;
-        float: right;
-        color: white;
+      .compte-img {
+          width: 50px;
+          height: 50px;
+          float: right;
+          color: white;
+      }
+      .submenuCompte{
+          list-style: none;
+          position: absolute;
+          margin-top: 10px;
+          font-weight: 400;
+          top: 60%;
+          right: 5px;
+          background: #f9f9f9;
+          padding: 10px;
+          box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+          min-width: 100px;
+          z-index: 100;
+          .separator {
+              margin: 10px 0px;
+              border-top: 1px solid rgba(0, 0, 0, 0.5)
+          }
+      }
     }
-    .submenuCompte{
-        list-style: none;
-        position: absolute;
-        margin-top: 10px;
-        font-weight: 400;
-        top: 60%;
-        right: 5px;
-        background: #f9f9f9;
-        padding: 10px;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        min-width: 100px;
-        z-index: 100;
-        .separator {
-            margin: 10px 0px;
-            border-top: 1px solid rgba(0, 0, 0, 0.5)
-        }
-    }
+
+  }
+  .submenu, .submenuPresentation, .submenuCompte {
+    z-index: 9999; 
   }
 }
 </style>
