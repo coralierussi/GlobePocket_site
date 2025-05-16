@@ -1,0 +1,58 @@
+import Vue from 'vue'
+import Vuetify from 'vuetify'
+import App from './App.vue'
+import ActivitesPage from './components/ActivitesPage.vue'
+import ConnectionSite from './components/ConnectionSite.vue'
+import ContactSite from './components/ContactSite.vue'
+import HebergementsPage from './components/HebergementsPage.vue'
+import IndexSite from './components/IndexSite.vue'
+import TransportsPage from './components/TransportsPage.vue'
+import ValiseSite from './components/ValiseSite.vue'
+import VueRouter from './router'
+
+
+Vue.use(VueRouter)
+Vue.use(Vuetify)
+
+const vuetify = new Vuetify()
+
+const router = new VueRouter({
+  mode:'history',
+  routes: [
+    {
+      path: '/',
+      component: IndexSite
+    },
+    {
+      path: '/contact',
+      component: ContactSite
+    },
+    {
+      path: '/connection',
+      component: ConnectionSite
+    },
+    {
+      path: '/activites',
+      component: ActivitesPage
+    },
+    {
+      path: '/hebergement',
+      component: HebergementsPage
+    },
+    {
+      path: '/transport',
+      component: TransportsPage
+    },
+    {
+      path: '/maValise',
+      component: ValiseSite
+    },
+]
+})
+
+new Vue({
+  el: '#app',
+  vuetify,
+  router,
+  render: h => h(App)
+}).$mount('#app')
