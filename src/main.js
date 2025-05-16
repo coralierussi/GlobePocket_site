@@ -8,7 +8,7 @@ import HebergementsPage from './components/HebergementsPage.vue'
 import IndexSite from './components/IndexSite.vue'
 import TransportsPage from './components/TransportsPage.vue'
 import ValiseSite from './components/ValiseSite.vue'
-import VueRouter from './router'
+import VueRouter from 'vue-router'
 
 
 Vue.use(VueRouter)
