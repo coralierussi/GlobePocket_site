@@ -74,44 +74,25 @@
                     <img class="img-destination" src="../assets/PhotosSite/carte-points.png" alt="">
                 </div>
                 <div class="destination-details">
+                    
                     <div class="lieux">
-                        <div class="carte-lieux d-flex">
-                            <img class="img-carte-lieux" src="../assets/PhotosSite/Thaïlande.jpeg" alt="">
-                            <p class="nom-lieux">Thaïlande</p>
-                            <a href="/activiteThailande">
-                                <v-icon class="icon-arrow">mdi-chevron-right</v-icon>
-                            </a>
-                            <img class="img-carte-lieux" src="../assets/PhotosSite/idonésie.jpeg" alt="">
-                            <p class="nom-lieux">Indonésie</p>
-                            <a href="/activiteIndonesie">
-                                <v-icon class="icon-arrow">mdi-chevron-right</v-icon>
-                            </a>
+                    <div class="grid-lieux">
+                        <div
+                          class="carte-lieu"
+                          v-for="(lieu, index) in lieux"
+                          :key="index"
+                        >
+                        <router-link :to="lieu.lien">
+                          <img :src="lieu.image" :alt="lieu.nom" class="img-carte-lieu" />
+                          <div class="info-lieu">
+                            <p class="nom-lieu">{{ lieu.nom }}</p>
+                              <v-icon class="icon-arrow" >mdi-chevron-right</v-icon>
+                            </div>
+                        </router-link>
                         </div>
-                        <div class="carte-lieux d-flex">
-                            <img class="img-carte-lieux" src="../assets/PhotosSite/New zeland.jpeg" alt="">
-                            <p class="nom-lieux">Venezuela</p>
-                            <a href="/activiteVenezuela">
-                                <v-icon class="icon-arrow">mdi-chevron-right</v-icon>
-                            </a>
-                            <img class="img-carte-lieux" src="../assets/PhotosSite/slovaquie.jpeg" alt="">
-                            <p class="nom-lieux">Slovaquie</p>
-                            <a href="/activiteSlovaquie">
-                                <v-icon class="icon-arrow">mdi-chevron-right</v-icon>
-                            </a>
-                        </div>
-                        <div class="carte-lieux d-flex">
-                            <img class="img-carte-lieux" src="../assets/PhotosSite/argentine.jpeg" alt="">
-                            <p class="nom-lieux">Argentine</p>
-                            <a href="/activiteArgentine">
-                                <v-icon class="icon-arrow">mdi-chevron-right</v-icon>
-                            </a>
-                            <img class="img-carte-lieux" src="../assets/PhotosSite/nicaragua.jpeg" alt="">
-                            <p class="nom-lieux">Nicaragua</p>
-                            <a href="/activiteNicaragua">
-                                <v-icon class="icon-arrow">mdi-chevron-right</v-icon>
-                            </a>
-                        </div>
+                      </div>
                     </div>
+
                     <div class="btn-destination">
                         <v-btn class="text-btn-destination">Je choisis ma destination</v-btn>
                     </div>
@@ -120,9 +101,9 @@
         </div>
 
         <div class="offre-coup-coeur">
-            <span class="title-offre">Nos offres coups de coeurs du moment !</span>
+            <p class="title-offre">Nos offres coups de coeurs du moment !</p>
             <div class="tag d-flex">
-                <div class="pays">
+                <div class="bonPlan">
                     <p class="text-bon-plan">Bons plans</p>
                 </div>
                 <div class="pays">
@@ -141,72 +122,39 @@
                     <p class="text-bon-plan">Afrique</p>
                 </div>
             </div>
-            <div class="details-coups-coeur d-flex">
-                <div class="carte-coups-coeurs">
-                    <img class="img-act-coeur" src="../assets/PhotosSite/idonésie.jpeg" alt="">
-                    <div class="temps-prix d-flex">
-                        <p class="temps">3 jours, 2 nuits</p>
-                        <p class="prix">500€ / personne</p>
+
+            <div class="offres">
+                <div class="grid-offres">
+                  <div
+                    class="carte-offre"
+                    v-for="(offre, index) in offres"
+                    :key="index"
+                  >
+                    <img :src="offre.image" :alt="offre.pays" class="img-carte-offre" />
+                    <div class="temps-prix">
+                      <p class="temps">{{ offre.duree }}</p>
+                      <p class="prix">{{ offre.prix }}</p>
                     </div>
-                    <!-- <div class="description-coups-coeurs"> -->
-                        <p class="text-description-coup-coeur">Explorez la beauté de l'île pendant 3 jours et 2 nuits avec notre agence de voyage</p>
-                    <!-- </div> -->
-                     <div class="pays-details d-flex">
-                        <div class="pays-name d-flex">
-                            <img class="picto-maps" src="../assets/Pictos/maps@4x.png" alt="">
-                            <p class="name-pays">Indonésie</p>
-                        </div>
-                        <div class="lien-offre">
-                            <a href="/offreIndonésie">
-                                <p class="text-lien-offre">Découvrir</p>
-                            </a>
-                        </div>
-                     </div>
-                </div>
-                <div class="carte-coups-coeurs">
-                    <img class="img-act-coeur" src="../assets/PhotosSite/japon.jpeg" alt="">
-                    <div class="temps-prix d-flex">
-                        <p class="temps">3 jours, 2 nuits</p>
-                        <p class="prix">600€ / personne</p>
+                    <p class="description-offre">{{ offre.description }}</p>
+                    <div class="pays-details">
+                      <div class="pays-name">
+                        <img src="@/assets/Pictos/maps@4x.png" alt="map" class="picto-maps" />
+                        <p class="name-pays">{{ offre.pays }}</p>
+                      </div>
+                      <router-link :to="offre.lien" class="text-lien-offre">Découvrir</router-link>
                     </div>
-                    <!-- <div class="description-coups-coeurs"> -->
-                        <p class="text-description-coup-coeur">Explorez les montagnes et les paysages majestueux jours et nuits </p>
-                    <!-- </div> -->
-                     <div class="pays-details d-flex">
-                        <div class="pays-name d-flex">
-                            <img class="picto-maps" src="../assets/Pictos/maps@4x.png" alt="">
-                            <p class="name-pays">Japon</p>
-                        </div>
-                        <div class="lien-offre">
-                            <a href="/offreJapon">
-                                <p class="text-lien-offre">Découvrir</p>
-                            </a>
-                        </div>
-                     </div>
-                </div>
-                <div class="carte-coups-coeurs">
-                    <img class="img-act-coeur" src="../assets/PhotosSite/italie.jpeg" alt="">
-                    <div class="temps-prix d-flex">
-                        <p class="temps">3 jours, 2 nuits</p>
-                        <p class="prix">500€ / personne</p>
-                    </div>
-                    <!-- <div class="description-coups-coeurs"> -->
-                        <p class="text-description-coup-coeur">Explorez la beauté de l'île pendant 3 jours et 2 nuits avec notre agence de voyage</p>
-                    <!-- </div> -->
-                     <div class="pays-details d-flex">
-                        <div class="pays-name d-flex">
-                            <img class="picto-maps" src="../assets/Pictos/maps@4x.png" alt="">
-                            <p class="name-pays">Italie</p>
-                        </div>
-                        <div class="lien-offre">
-                            <a href="/offreItalie">
-                                <p class="text-lien-offre">Découvrir</p>
-                            </a>
-                        </div>
-                     </div>
+                  </div>
                 </div>
             </div>
+
+            <div class="btn-offre-coup-coeur">
+                <router-link :to="'/offreCoupCoeur'">
+                    <v-btn class="text-btn-offre-coup-coeur">Je découvre</v-btn>
+                </router-link>
+            </div>
         </div>
+
+        
 
         <FooterSite/>
     </main>
@@ -221,6 +169,65 @@
     components: { HeaderSite, FooterSite},
     data(){
       return {
+        lieux: [
+            {
+              nom: "Thaïlande",
+              image: require("@/assets/PhotosSite/Thaïlande.jpeg"),
+              lien: "/activiteThailande"
+            },
+            {
+              nom: "Indonésie",
+              image: require("@/assets/PhotosSite/idonésie.jpeg"),
+              lien: "/activiteIndonesie"
+            },
+            {
+              nom: "Venezuela",
+              image: require("@/assets/PhotosSite/New zeland.jpeg"),
+              lien: "/activiteVenezuela"
+            },
+            {
+              nom: "Slovaquie",
+              image: require("@/assets/PhotosSite/slovaquie.jpeg"),
+              lien: "/activiteSlovaquie"
+            },
+            {
+              nom: "Argentine",
+              image: require("@/assets/PhotosSite/argentine.jpeg"),
+              lien: "/activiteArgentine"
+            },
+            {
+              nom: "Nicaragua",
+              image: require("@/assets/PhotosSite/nicaragua.jpeg"),
+              lien: "/activiteNicaragua"
+            }
+        ],
+        offres: [
+            {
+                pays: "Indonésie",
+                image: require("@/assets/PhotosSite/indonesie.jpeg"),
+                duree: "3 jours, 2 nuits",
+                prix: "500€ / personne",
+                description: "Explorez la beauté de l'île pendant 3 jours et 2 nuits avec notre agence de voyage",
+                lien: "/offreIndonésie"
+            },
+            {
+                pays: "Japon",
+                image: require("@/assets/PhotosSite/japon.jpeg"),
+                duree: "3 jours, 2 nuits",
+                prix: "800€ / personne",
+                description: "Appréciez les fleurs et les arbres fruitiers de ce beau pays",
+                lien: "/offreJapon"
+            },
+            {
+                pays: "Italie",
+                image: require("@/assets/PhotosSite/italie.jpeg"),
+                duree: "3 jours, 2 nuits",
+                prix: "600€ / personne",
+                description: "Explorez les montagnes et les paysages majestueux paysages jour et nuit",
+                lien: "/offreItalie"
+            }
+        ]
+
       }
     },
     methods: {
@@ -326,7 +333,7 @@ a{
     margin: 100px 0px;
     .titre-service{
         text-align: center;
-        font-size: 25px;
+        font-size: 30px;
         font-weight: 700;
         margin-bottom: 50px;
     }
@@ -401,11 +408,11 @@ a{
                 transform: rotate(-10deg);
             }
             .text-resultat{
-                width: 30%;
-                margin: 0% 35%;
+                width: 35%;
+                margin: 0% 32.5%;
                 text-align: center;
                 .title-resultat{
-                    font-size: 25px;
+                    font-size: 30px;
                     font-weight: 700;
                 }
                 .sous-titre-resultat{
@@ -445,7 +452,7 @@ a{
     margin: 70px 0px;
     .title-destinations{
         text-align: center;
-        font-size: 25px;
+        font-size: 30px;
         font-weight: 700;
         margin-bottom: 50px;
         color: #EAA854;
@@ -455,48 +462,57 @@ a{
         .img-carte-point{
             width: 50%;
             .img-destination{
-                width: 550px;
-                height: 500px;
+                width: 100%;
+                max-height: 600px;
             }
         }
         .destination-details{
             width: 40%;
             margin: 0% 5%;
-            .img-carte{
-                width: 100%;
-                height: 100%;
-                object-fit: cover; 
-                object-position: center; 
-                display: block;
+            
+            .grid-lieux {
+              display: grid;
+              grid-template-columns: repeat(2, 1fr);
+              gap: 1rem;
             }
-            .lieux{
-                width: 50%;
-                margin-left: 20px;
-                .carte-lieux{
-                    width: 80%;
-                    padding: 10px;
-                    border-radius: 10px;
-                    margin-bottom: 20px;
-                    .img-carte-lieux{
-                        width: 50px;
-                        height: 50px;
-                    }
-                    .nom-lieux{
-                        font-size: 20px;
-                        font-weight: 700;
-                        margin-left: 10px;
-                    }
-                    .icon-arrow{
-                        font-size:30px;
-                        margin-left:auto;
-                    }
-                }
+
+            .carte-lieu {
+              background: #fff;
+              border-radius: 12px;
+              overflow: hidden;
+              box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+              position: relative;
+              cursor: pointer;
+              transition: transform 0.2s;
             }
+
+            .carte-lieu:hover {
+              transform: translateY(-4px);
+            }
+
+            .img-carte-lieu {
+              width: 100%;
+              height: 130px;
+              object-fit: cover;
+            }
+
+            .info-lieu {
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+              padding: 0.75rem 1rem;
+            }
+
+            .nom-lieu {
+              font-weight: bold;
+              font-size: 1rem;
+              margin: 0;
+            }
+            
             .btn-destination{
                 display: flex;
                 justify-content: center;
                 margin-top: 20px;
-                box-shadow: none;
                 .text-btn-destination{
                     background-color: #c55230;
                     padding: 10px 20px;
@@ -505,6 +521,12 @@ a{
                     text-transform: none;
                     font-size: 15px;
                     font-weight: 600;
+                    box-shadow: none;
+                }
+                .text-btn-destination:hover{
+                    background-color: #c55330dd;
+                    color: white;
+                    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
                 }
             }
         }
@@ -512,43 +534,152 @@ a{
 }
 
 .offre-coup-coeur{
+    margin-bottom: 50px;
+    background-color: rgba(244, 231, 198, 0.3);
+    padding: 60px 0px;
     .title-offre{
         text-align: center;
-        font-size: 25px;
+        font-size: 30px;
         font-weight: 700;
-        margin-bottom: 50px;
     }
     .tag{
-        margin: 0% 5%;
+        margin: 5% 5%;
         width: 90%;
-        justify-content: center;
+        justify-content: space-around;
         .bonPlan{
-            background-color: #F4E7C6;
-            padding: 10px;
-            border-radius: 10px;
+            background-color: #EAA854;
+            padding: 5px 10px;
+            border-radius: 20px;
             margin-right: 10px;
+            cursor: pointer;
             .text-bon-plan{
-                font-size: 20px;
-                font-weight: 700;
+                font-size: 15px;
+                color: white;
+                font-weight: 600;
+            }
+        }
+        .pays{
+            background-color: #EAA854;
+            padding: 5px 10px;
+            border-radius: 20px;
+            margin-right: 10px;
+            opacity: 0.5;
+            cursor: pointer;
+            .text-bon-plan{
+                font-size: 15px;
+                color: white;
+                font-weight: 600;
+            }
+            &:hover{
+                opacity: 1;
             }
         }
     }
-    .details-coups-coeur{
-        .carte-coups-coeurs{
-            .img-act-coeur{
-                width: 70%;
+    
+    .offres {
+        width: 90%;
+        margin: auto;
+        margin-top: 30px;
+
+        .grid-offres {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 1.5rem;
+        }
+      
+        .carte-offre {
+          background: #fff;
+          border-radius: 12px;
+          box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+          overflow: hidden;
+          transition: transform 0.2s;
+          display: flex;
+          flex-direction: column;
+          cursor: pointer;
+        }
+      
+        .carte-offre:hover {
+          transform: translateY(-4px);
+        }
+      
+        .img-carte-offre {
+          width: 100%;
+          object-fit: cover;
+        }
+      
+        .temps-prix {
+          display: flex;
+          justify-content: space-between;
+          padding: 0.5rem 1rem 0;
+          font-weight: bold;
+          font-size: 0.95rem;
+        
+        }
+      
+        .description-offre {
+          padding: 0.5rem 1rem;
+          font-size: 0.9rem;
+          color: #444;
+          flex-grow: 1;
+        }
+      
+        .pays-details {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding: 0.75rem 1rem;
+        
+          .pays-name {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            
+            .picto-maps {
+              width: 18px;
+              height: 18px;
             }
-            .pays-details{
-                .pays-name{
-                    display: flex;
-                    align-items: center;
-                    .picto-maps{
-                        width: 20px;
-                        height: 20px;
-                    }
-                }
+          
+            .name-pays {
+              font-weight: bold;
+              font-size: 0.95rem;
+              margin: 0;
             }
+          }
+        
+          .text-lien-offre {
+            color: #4a4a4a;
+            font-weight: 500;
+            text-decoration: none;
+            font-size: 0.9rem;
+          }
+        
+          .text-lien-offre:hover {
+            text-decoration: underline;
+          }
+        }
+    }
+    
+    .btn-offre-coup-coeur{
+        display: flex;
+        justify-content: center;
+        margin-top: 80px;
+        .text-btn-offre-coup-coeur{
+            background-color: #c55230;
+            padding: 10px 30px;
+            border-radius: 20px;
+            color: white;
+            text-transform: none;
+            font-size: 15px;
+            font-weight: 600;
+            box-shadow: none;
+        }
+        .text-btn-offre-coup-coeur:hover{
+            background-color: #c55330dd;
+            color: white;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
         }
     }
 }
+
+
 </style>

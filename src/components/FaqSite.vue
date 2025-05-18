@@ -4,7 +4,7 @@
       <HeaderSite/>
       <h1 class="titre">F.A.Q</h1>
       
-      <div class="questions d-flex">
+      <div class="questions">
         <div class="faq">
           <p class="title-faq">Vous n'êtes pas seul·e à vous poser des questions ! Voici quelques réponses aux plus fréquentes :</p>
           <v-expansion-panels>
@@ -71,33 +71,7 @@
 
           </v-expansion-panels>
         </div>
-        <div class="formulaire d-flex">
-          <form action="">
-            <div class="input">
-              <!-- <label for="nom">Nom</label> -->
-              <input placeholder="Nom" type="text" id="nom" name="nom">
-            </div>
-            <div class="input">
-              <!-- <label for="email">Email</label> -->
-              <input placeholder="Email" type="email" id="email" name="email" required>
-            </div>
-            <div class="input">
-              <v-select 
-                placeholder="Sélectionner un sujet" 
-                hide-details
-                :items="sujets" 
-                v-model="selected"
-                style="background-color: #F2F2F2; padding-left: 6px;"
-                :menu-props="{ offsetY: true }"
-                />
-            </div>
-            <div class="input">
-              <textarea placeholder="Message" id="message" name="message" required></textarea>
-            </div>
-          
-            <button class="btn" type="submit">Envoyer</button>
-          </form>
-        </div>
+        
       </div>
       <FooterSite/>
     </main>
@@ -166,7 +140,6 @@
     width: 100%;
     padding-bottom: 40px;
     .faq{
-      width: 50%;
       margin: 0% 2%;
       .title-faq{
         margin-bottom: 30px;
