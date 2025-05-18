@@ -77,11 +77,7 @@
                     
                     <div class="lieux">
                     <div class="grid-lieux">
-                        <div
-                          class="carte-lieu"
-                          v-for="(lieu, index) in lieux"
-                          :key="index"
-                        >
+                        <div class="carte-lieu" v-for="(lieu, index) in lieux" :key="index">
                         <router-link :to="lieu.lien">
                           <img :src="lieu.image" :alt="lieu.nom" class="img-carte-lieu" />
                           <div class="info-lieu">
@@ -154,7 +150,94 @@
             </div>
         </div>
 
-        
+        <div class="check-go">
+            <div class="en-tete-check-go d-flex">
+                <div class="text-check-go">
+                    <p class="title-check-go">Check, check, prêt à partir !</p>
+                    <p class="sous-titre-check-go">Facile et rapide</p>
+                </div>
+                <img class="logo-mono-marron" src="../assets/Logo/mono marron@4x.png" alt="">
+            </div>
+            <div class="check">
+                <div class="check-list">
+                    <div class="details-check">
+                        <div class="picto-check-go">
+                            <img class="picto-check" src="../assets/Pictos/renseignement@4x.png">
+                        </div>
+                        <div class="text-details-check">
+                            <p class="title-check">Tout est prêt avant même de partir</p>
+                            <p class="description-check">
+                                Avec Globe Pocket, chaque voyage est acompagné d'une checklist personnalisée: 
+                                vaccins obligatoires, papiers à fournir, règles d'entrée, météo, devises, ...
+                                <br> On pense à tout pour que vous n'ayez plus à y penser.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="details-check">
+                        <div class="picto-check-go">
+                            <img class="picto-check" src="../assets/Pictos/calendrier@4x.png">
+                        </div>
+                        <div class="text-details-check">
+                            <p class="title-check">Des recommandations intelligentes</p>
+                            <p class="description-check">
+                                On vous alertes automatiquement si un détails administratif manque ou si une mise
+                                à jour impact votre départ.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="details-check">
+                        <div class="picto-check-go">
+                            <img class="picto-check" src="../assets/Pictos/panneaux@4x.png">
+                        </div>
+                        <div class="text-details-check">
+                            <p class="title-check">Pas de stress, tout est centralisé</p>
+                            <p class="description-check">
+                                Plus besoin de chercher partout: vos documents, confirmations et infos utiles
+                                sont réunis dans un seul espace.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="check-grece-rome">
+                    <div class="check-grece">
+                        <img class="img-grece" src="../assets/PhotosSite/grèce.jpeg" alt="">
+                        <p class="title-check-grece">En route vers la Grèce</p>
+                        <p class="description-check-grece">14-29 juin</p>
+                        <div class="icon-check d-flex">
+                            <v-icon class="check-icon">mdi-leaf</v-icon>
+                            <v-icon class="check-icon">mdi-map-legend</v-icon>
+                            <v-icon class="check-icon send">mdi-send</v-icon>
+                        </div>
+                        <div class="like-check d-flex">
+                            <v-icon class="build-icon">mdi-domain</v-icon>
+                            <p class="text-check-like">24 personnes en route</p>
+                            <v-icon class="heart-icon">mdi-cards-heart-outline</v-icon>
+                        </div>
+                    </div>
+                    <div class="check-rome d-flex">
+                        <div class="img-check-rome">
+                            <img class="img-rome" src="../assets/PhotosSite/img-rome-index.png" alt="">
+                        </div>
+                        <div class="en-cours">
+                            <p class="text-en-cours">En cours</p>
+                            <p class="text-rome">Voyage à Rome</p>
+                            <span class="complet-rome d-flex">
+                                <p class="pourcentage-rome">40% </p>
+                                complété
+                            </span>
+                            <div class="bar-progression-rome">
+                                <div class="remplissage"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="btn-check-go">
+                <router-link :to="'/maValise'">
+                    <v-btn class="text-btn-check-go">Préparer mon voyage</v-btn>
+                </router-link>
+            </div>
+        </div>
 
         <FooterSite/>
     </main>
@@ -385,7 +468,7 @@ a{
 .resultat{
     .container-resultat{
         position: relative;
-        height: 600px;
+        height: 600px;  
         /* Image carte fond */
         .img-resultat{
             position: absolute;
@@ -681,5 +764,212 @@ a{
     }
 }
 
+.check-go{
+    .en-tete-check-go{
+        position: relative;
+        .text-check-go{
+            width: 100%;
+            text-align: center;
+            .title-check-go{
+                font-size: 30px;
+                font-weight: 700;
+            }
+            .sous-titre-check-go{
+                font-size: 16px;
+                margin-bottom: 50px;
+                font-weight: 200;
+            }
+        }
+        .logo-mono-marron{
+            width: 140px;
+            margin-right: 3%;
+            transform: rotate(30deg);
+        }
+    }
+    .btn-check-go{
+        display: flex;
+        justify-content: center;
+        margin-top: 80px;
+        .text-btn-check-go{
+            background-color: #c55230;
+            padding: 10px 30px;
+            border-radius: 20px;
+            color: white;
+            text-transform: none;
+            font-size: 15px;
+            font-weight: 600;
+            box-shadow: none;
+        }
+        .text-btn-offre-coup-coeur:hover{
+            background-color: #c55330dd;
+            color: white;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+    }
+    .check{
+        display: flex;
+        justify-content: space-around;
+        .check-list{
+            width: 50%;
+            .details-check{
+                display: flex;
+                align-items: center;
+                gap: 1rem;
+                margin-bottom: 50px;
+                .picto-check-go{
+                    display: flex;
+                    .picto-check{
+                        width: 65px;
+                    }
+                }
+                .text-details-check{
+                    width: 80%;
+                    .title-check{
+                        font-size: 20px;
+                        font-weight: 700;
+                    }
+                    .description-check{
+                        font-size: 15px;
+                        font-weight: 400;
+                    }
+
+                }
+            }
+        }
+        .check-grece-rome{
+            width: 35%;
+            .check-grece{
+                position: relative;
+                background-color: white;
+                border-radius: 20px;
+                padding: 20px;
+                width: 80%;
+                /* gauche, bas, haut, droite */
+                box-shadow:
+                    0px 0px 0px rgba(244, 231, 198, 0.1),  
+                    0px 0px 0px rgba(244, 231, 198, 0.1),  
+                    0px -2px 20px rgba(244, 231, 198), 
+                    4px 2px 100px rgba(244, 231, 198); 
+                .img-grece{
+                    width: 100%;
+                    height: 40%;
+                    border-radius: 20px;
+                }
+                .title-check-grece{
+                    color: black;
+                    font-size: 20px;
+                    font-weight: 600;
+                    margin-top: 20px;
+                }
+                .description-check-grece{
+                    width: 25%;
+                    color: grey;
+                    font-size: 15px;
+                    font-weight: 400;
+                    margin: 10px 0px;
+                    border-right: solid 1.5px grey;
+                }
+                .icon-check{
+                    width: 35%;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    margin: 15px 0px;
+                    .check-icon{
+                        color: grey;
+                        font-size: 20px;
+                        margin-right: 15%;
+                        align-content: center;
+                        background-color: rgba(244, 231, 198, 0.4);
+                        border-radius: 100%;
+                        padding: 5px;
+                    }
+                    .send{
+                        transform: rotate(-35deg);
+                    }
+                }
+                .like-check{
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    margin: 10px 0px;
+                    .build-icon{
+                        color: grey;
+                        font-size: 20px;
+                        align-content: center;
+                        padding: 5px;
+                    }
+                    .text-check-like{
+                        color: grey;
+                        font-size: 15px;
+                        font-weight: 500;
+                        margin-left: 3%;
+                    }
+                    .heart-icon{
+                        margin-left: auto;
+                        color: #D54720;
+                        font-size: 20px;
+                        align-content: center;
+                        border-radius: 100%;
+                        padding: 5px;
+                    }
+                }
+            }
+            .check-rome{
+                position: relative;
+                left: 48%;
+                top: -32%;
+                background-color: white;
+                border-radius: 10px;
+                width: 90%;
+                .img-check-rome{
+                    width: 20%;
+                    .img-rome{
+                        border-radius: 100%;
+                        width: 60px;
+                    }
+                }
+                .en-cours{
+                    width: 50%;
+                    padding-bottom: 10px;
+                    .text-en-cours{
+                        font-size: 16px;
+                        font-weight: 500;
+                        color: grey;
+                    }
+                    .text-rome{
+                        font-size: 18px;
+                        font-weight: 600;
+                    }
+                    .complet-rome{
+                        font-size: 14px;
+                        font-weight: 600;
+                        .pourcentage-rome{
+                            font-size: 14px;
+                            font-weight: 600;
+                            padding-right: 5px;
+                            color: #EAA854;
+                        }
+                    }
+                    .bar-progression-rome {
+                         width: 80%;
+                         height: 10px;
+                         background-color: #eee; 
+                         border-radius: 5px;
+                         overflow: hidden; 
+                         margin-top: 7px;
+                        .remplissage {
+                            width: 40%; 
+                            height: 100%;
+                            background-color: #EAA854;
+                            border-radius: 5px 0 0 5px; 
+                        }
+
+                    }
+                }
+            }
+        }
+    }
+}
 
 </style>
