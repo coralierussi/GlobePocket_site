@@ -53,50 +53,71 @@
 a{
     text-decoration: none;
 }
-.main{
-    width: 100%;
-    overflow-y: hidden;
-    margin-top: 60px;
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  min-height: 60vh; // assure que la page prend toute la hauteur
+//   margin-top: 60px;
+  overflow-y: hidden;
+
+  .footer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 20px 0;
     background-color: rgba(244, 231, 198, 0.5);
-    .footer{
-    .logo{
+    margin-top: auto; // ⬅️ pousse le footer en bas quand peu de contenu
+
+    .logo {
       width: 15%;
       margin-top: 10px;
-      .logo-img{
-          width: 120px;
-          margin: 5px;
+
+      .logo-img {
+        width: 120px;
+        margin: 5px;
       }
     }
-    .footer-bar-globePocket, .footer-bar-contact, .footer-bar{
-        margin-top: 10px;
-        width: 28%;
-        list-style: none;
-        .titre-footer{
-            color: #EAA854;
-            font-weight: 650;
-        }
-        .link-footer{
-          color: black;
-          padding: 0rem 0.5rem;
-        }
+
+    .footer-bar-globePocket,
+    .footer-bar-contact,
+    .footer-bar {
+      margin-top: 10px;
+      width: 28%;
+      list-style: none;
+
+      .titre-footer {
+        color: #EAA854;
+        font-weight: 650;
+      }
+
+      .link-footer {
+        color: black;
+        padding: 0rem 0.5rem;
+      }
     }
-    
+  }
+
+  .legale {
+    border-top: solid 1px grey;
+    background-color: rgba(244, 231, 198, 0.5);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 10px 0;
+    // background-color: white;
+
+    p {
+      color: black;
+      font-size: 12px;
+      margin: 0px 5px;
     }
-    .legale{
-        border-top: solid 1px grey;
-        display: flex;
-        align-items: center;
-        gap: 1rem;
-        margin: 30px 0px 5px 0px;
-        .ML{
-            margin-left: 10px;
-        }
-        p{
-            color: black;
-            font-size: 12px;
-            margin: 0px 5px;
-        }
-    }
+  }
 }
+
 
   </style>
