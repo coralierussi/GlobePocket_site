@@ -9,6 +9,7 @@ import IndexSite from './components/IndexSite.vue'
 import TransportsPage from './components/TransportsPage.vue'
 import ValiseSite from './components/ValiseSite.vue'
 import FaqSite from './components/FaqSite.vue'
+import ComptePage from './components/ComptePage.vue'
 import VueRouter from 'vue-router'
 
 
@@ -29,7 +30,7 @@ const router = new VueRouter({
       component: ContactSite
     },
     {
-      path: '/connection',
+      path: '/connexion',
       component: ConnectionSite
     },
     {
@@ -51,6 +52,14 @@ const router = new VueRouter({
     {
       path: '/faq',
       component: FaqSite
+    },
+    {
+      path: '/compte',
+      component: ComptePage
+    },
+    {
+      path: '/inscription',
+      component: InscriptionPage
     }
 ]
 })
