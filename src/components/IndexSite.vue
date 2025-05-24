@@ -90,7 +90,9 @@
                     </div>
 
                     <div class="btn-destination">
-                        <v-btn class="text-btn-destination">Je choisis ma destination</v-btn>
+                        <router-link :to="'/pays'">
+                            <v-btn class="text-btn-destination">Je choisis ma destination</v-btn>
+                        </router-link>
                     </div>
                 </div>
             </div>
@@ -236,6 +238,34 @@
                 <router-link :to="'/maValise'">
                     <v-btn class="text-btn-check-go">Préparer mon voyage</v-btn>
                 </router-link>
+            </div>
+        </div>
+
+        <div class="communaute-section">
+            <span class="titre-communaute d-flex">
+                Un accès libre à <p class="titre-color-communaute">Globe Connect,</p> 
+                <br>notre communauté d'entraide
+            </span>
+            <div class="commentaire">
+                <div class="img-commentaire">
+                    <img class="img-fond-commentaire" src="../assets/PhotosSite/dernière_photo.jpeg" alt="">
+                </div>
+                <img class="img-logo-mono-vert" src="../assets/Logo/mono vert@4x.png" alt="">
+                <div class="comm">
+                    <div class="img-personne-comm">
+                        <img class="img-profil-com" src="../assets/PhotosSite/mec-comm.jpeg" alt="">
+                    </div>
+                    <p class="text-comm">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Esse iste voluptatem nostrum aliquid accusantium non ratione maxime, voluptas cum doloribus doloremque incidunt. Qui eligendi quae nemo unde rem quo libero!</p>
+                    <p class="nom-personne-comm">- Simon Dubois</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="newsletter">
+            <p class="titre-newsletter">Entrez votre mail et recevez tout de suite nos 3 meilleures astuces pour voyager moins cher !</p>
+            <div class="champ-newsletter d-flex">
+                <input type="text" class="input-newsletter" placeholder="Votre adresse e-mail">
+                <v-btn class="text-btn-newsletter">Envoyer</v-btn>
             </div>
         </div>
 
@@ -781,6 +811,9 @@ a{
             }
         }
         .logo-mono-marron{
+            position: absolute;
+            left: 85%;
+            top: -80%;
             width: 140px;
             margin-right: 3%;
             transform: rotate(30deg);
@@ -789,7 +822,6 @@ a{
     .btn-check-go{
         display: flex;
         justify-content: center;
-        margin-top: 80px;
         .text-btn-check-go{
             background-color: #c55230;
             padding: 10px 30px;
@@ -968,6 +1000,127 @@ a{
                     }
                 }
             }
+        }
+    }
+}
+
+.communaute-section{
+    margin: 100px 0px;
+    background-color: rgba(244, 231, 198, 0.3);
+    padding: 60px 0px;
+    padding-bottom: 180px;
+    .titre-communaute{
+        font-size: 27px;
+        font-weight: 700;
+        margin-bottom: 50px;
+        align-items: center;
+        justify-content: center;
+        .titre-color-communaute{
+            color: #EAA854;
+            margin-left: 15px;
+        }
+    }
+    .commentaire{
+        position: relative;
+        width: 100%;
+        .img-commentaire{
+            width: 80%;
+            margin: 0% 10%;
+            .img-fond-commentaire{
+                width: 100%;
+                height: 400px;
+                border-radius: 20px;
+            }
+        }
+        .img-logo-mono-vert{
+            position: absolute;
+            top: -15%;
+            left: 4%;
+            width: 125px;
+            transform: rotate(-10deg);
+        }
+        .comm{
+            padding: 30px;
+            width: 40%;
+            background-color: white;
+            align-items: center;
+            left: 30%;
+            top: 70%;
+            position: absolute;
+            .img-personne-comm{
+                width: 40%;
+                position: absolute;
+                top: -30%;
+                left: 35%;
+                aspect-ratio: 1 / 1;
+                object-fit: cover;
+                .img-profil-com{
+                    border-radius: 100%;
+                    width: 80%;
+                    height: 60%;
+                }
+            }
+            .text-comm{
+                width: 80%;
+                margin: 0% 10%;
+                font-size: 15px;
+                font-weight: 400;
+                padding-top: 40px;
+                text-align: center;
+                
+            }
+            .nom-personne-comm{
+                margin-top: 10px;
+                font-size: 16px;
+                font-weight: 300; 
+                text-align: center;  
+            }
+        }
+    }
+}
+
+.newsletter{
+    width: 80%;
+    background-color: rgba(244, 231, 198, 0.3);
+    margin: 0% 10%;
+    padding: 50px 50px 100px 50px;
+    border-top-left-radius: 125px;
+    .titre-newsletter{
+        text-align: center;
+        font-size: 25px;
+        font-weight: 600;
+        width: 60%;
+        color: #EAA854;
+        margin: 0% 20% 50px 20%;
+    }
+    .champ-newsletter{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        .input-newsletter{
+            width: 50%;
+            padding: 10px;
+            border-radius: 20px;
+            border: none;
+            background-color: white;
+            font-size: 15px;
+            font-weight: 400;
+        }
+        .text-btn-newsletter{
+            background-color: #c55230;
+            padding: 10px 30px;
+            border-radius: 20px;
+            color: white;
+            text-transform: none;
+            font-size: 15px;
+            font-weight: 600;
+            box-shadow: none;
+        }
+        .text-btn-newsletter:hover{
+            background-color: #c55330dd;
+            color: white;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
         }
     }
 }

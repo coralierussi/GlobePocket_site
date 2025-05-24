@@ -2,7 +2,7 @@
   <main class="header d-flex">
     <div class="logo">
       <router-link to="/">
-        <img class="logo-img" src="../assets/Logo/Logo blanc@4x.png" alt="">
+        <img class="logo-img" src="../assets/Logo/logo original@4x.png" alt="">
       </router-link>
     </div>
 
@@ -14,6 +14,7 @@
             <li><router-link to="/transport" @click.native="handleClickOutside">Transport</router-link></li>
             <li><router-link to="/hebergement" @click.native="handleClickOutside">Hébergements</router-link></li>
             <li><router-link to="/activites" @click.native="handleClickOutside">Activités</router-link></li>
+            <li><router-link to="/pays" @click.native="handleClickOutside">Pays</router-link></li>
             <li><router-link to="/maValise" @click.native="handleClickOutside">Que mettre dans ma valise ?</router-link></li>
             <li><router-link to="/reservationGestion" @click.native="handleClickOutside">Gérer ma réservation</router-link></li>
           </div>
@@ -76,11 +77,11 @@
         </a>
         <ul v-if="openCompte" class="submenuCompte">
           <div class="free">
-            <li><router-link to="/comptePage" @click.native="handleClickOutside">Mon compte</router-link></li>
-            <li><router-link to="/rdv" @click.native="handleClickOutside">Mes rendez-vous</router-link></li>
+            <li><router-link to="/compte" @click.native="handleClickOutside">Mon compte</router-link></li>
+            <li><router-link to="/calendrier" @click.native="handleClickOutside">Mes rendez-vous</router-link></li>
             <li><router-link to="/favoris" @click.native="handleClickOutside">Mes favoris</router-link></li>
             <div class="separator"></div>
-            <li><router-link to="/desinscription" @click.native="handleClickOutside">Se désinscrire</router-link></li>
+            <li><router-link to="/connexion" @click.native="handleClickOutside">Se connecter</router-link></li>
             <li><router-link to="/parametres" @click.native="handleClickOutside">Paramètres</router-link></li>
           </div>
         </ul>
@@ -144,7 +145,6 @@ li {
   color: black;
 }
 .header {
-  background-color: rgba(0, 0, 0, 0.2);
   width: 100%;
   height: 100px;
 
@@ -163,7 +163,6 @@ li {
 
     .link-header {
       cursor: pointer;
-    //   color: white;
       font-weight: 700;
       margin: 0%;
       position: relative;
@@ -212,7 +211,7 @@ li {
         width: 50px;
         height: 50px;
         float: right;
-        // color: white;
+        color: black;
       }
 
       .submenuCompte {

@@ -16,12 +16,12 @@
               <div class="google">
                 <img class="icon-google" src="../assets/Logo/google.png" alt="">
                 <!-- <v-icon class="icon-google">mdi-google</v-icon> -->
-                <p class="text-connect-with">Se connecter avec Google</p>
+                <p class="text-connect-with">S'inscrire avec Google</p>
               </div>
               <div class="facebook">
                 <img class="icon-facebook" src="../assets/Logo/facebook.png" alt="">
                 <!-- <v-icon class="icon-facebook">mdi-facebook</v-icon> -->
-                <p class="text-connect-with">Se connecter avec Facebook</p>
+                <p class="text-connect-with">S'inscrire avec Facebook</p>
               </div>
             </div>
             <p class="ou">ou</p>
@@ -49,7 +49,9 @@
               </div>
             </div>
             <div class="btn-connect">
-              <v-btn class="btn-connexion"> S'inscrire </v-btn>
+                <router-link to="/compte">
+                    <v-btn class="btn-connexion"> S'inscrire </v-btn>
+                </router-link>
             </div>
             <div class="inscription">
               <p class="text-inscription">Vous avez un compte ?</p>
@@ -76,7 +78,7 @@
   }
   </script>
   
-  <style sccs scoped>  
+<style lang="scss" scoped>
 
 .v-input--selection-controls{
   padding: 0px;

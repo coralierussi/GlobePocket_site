@@ -1,7 +1,7 @@
 <template>
   <v-app>
     <main id="contactSite">
-      <HeaderSite/>
+      <HeaderSiteColor/>
       <h1 class="titre">Nous contacter</h1>
       <div class="contact">
         <div class="telephone d-flex">
@@ -70,12 +70,12 @@
 </template>
   
   <script>
-  import HeaderSite from './HeaderSite.vue';
   import FooterSite from './FooterSite.vue';
+  import HeaderSiteColor from './HeaderSiteColor.vue';
   
   export default {
     name: 'ContactSite',
-    components: { HeaderSite, FooterSite},
+    components: { HeaderSiteColor, FooterSite},
     data(){
       return {
         sujets : [

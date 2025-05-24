@@ -1,7 +1,7 @@
 <template>
   <v-app>
     <main id="faqSite">
-      <HeaderSite/>
+      <HeaderSiteColor/>
       <h1 class="titre">F.A.Q</h1>
       
       <div class="questions">
@@ -70,12 +70,12 @@
 </template>
   
   <script>
-  import HeaderSite from './HeaderSite.vue';
   import FooterSite from './FooterSite.vue';
+  import HeaderSiteColor from './HeaderSiteColor.vue';
   
   export default {
     name: 'FaqSite',
-    components: { HeaderSite, FooterSite},
+    components: { HeaderSiteColor, FooterSite},
     data(){
       return {
       }

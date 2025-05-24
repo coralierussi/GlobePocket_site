@@ -1,7 +1,7 @@
 <template>
   <v-app>
     <main id="valiseSite">
-      <HeaderSite/>
+    <HeaderSiteColor/>
       <h1 class="titre">Que mettre dans ma valise ?</h1>
       <p class="sous-titre">
         Faire sa valise, c’est souvent un vrai casse-tête… surtout quand on s’apprête à partir loin, dans un pays qu’on ne connaît pas encore bien. Avec Globe Pocket, plus besoin de stresser : on a pensé à tout pour vous simplifier la vie !
@@ -51,12 +51,12 @@
 </template>
   
   <script>
-  import HeaderSite from './HeaderSite.vue';
+  import HeaderSiteColor from './HeaderSiteColor.vue';
   import FooterSite from './FooterSite.vue';
   
   export default {
     name: 'ValiseSite',
-    components: { HeaderSite, FooterSite},
+    components: { HeaderSiteColor, FooterSite},
     data(){
       return {
        documents: [

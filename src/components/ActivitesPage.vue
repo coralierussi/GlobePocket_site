@@ -81,55 +81,6 @@ a{
             text-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
         }
     }
-    .video-presentation {
-        position: absolute;
-        bottom: 90px;
-        left: 50%;
-        transform: translateX(-50%);
-        z-index: 10;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-        color: white;
-        text-align: center;
-        
-
-        .lien-video {
-          background-color: #c55230;
-          padding: 10px 20px;
-          border-radius: 10px;
-
-          p {
-            margin: 0;
-            font-size: 1.2rem;
-
-          }
-          span{
-            font-size: 1.2rem;
-            font-weight: bold;
-          }
-
-          a {
-            color: #fff;
-            text-decoration: underline;
-          }
-        }
-        .fleche {
-           position: absolute;
-            bottom: 30px;
-            left: 120%;
-            transform: translateX(-50%);
-            z-index: 10;
-
-          .fleche-icon {
-            transform: rotate(140deg);
-            color: #c55230;
-            width: 70px;
-            font-size: 70px; 
-          }
-        }
-    }
 }
 
 </style>

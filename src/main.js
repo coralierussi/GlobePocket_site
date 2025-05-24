@@ -10,6 +10,9 @@ import TransportsPage from './components/TransportsPage.vue'
 import ValiseSite from './components/ValiseSite.vue'
 import FaqSite from './components/FaqSite.vue'
 import ComptePage from './components/ComptePage.vue'
+import InscriptionPage from './components/InscriptionPage.vue'
+import PaysPage from './components/PaysPage.vue'
+import CalendrierPage from './components/CalendrierPage.vue'
 import VueRouter from 'vue-router'
 
 
@@ -60,6 +63,14 @@ const router = new VueRouter({
     {
       path: '/inscription',
       component: InscriptionPage
+    },
+    {
+      path: '/pays',
+      component: PaysPage
+    },
+    {
+      path: '/calendrier',
+      component: CalendrierPage
     }
 ]
 })
