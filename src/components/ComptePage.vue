@@ -161,7 +161,7 @@
 
 
   <!-- Drawer popup Galerie -->
-  <GalerieSite v-model="openGallery" :images="mesImages"/>
+  <GalerieSite v-model="openGallery" />
   </div>
 
     <div class="rdv">
