@@ -81,7 +81,7 @@
             <li><router-link to="/compte" @click.native="handleClickOutside">Mon compte</router-link></li>
             <li><router-link to="/calendrier" @click.native="handleClickOutside">Mes rendez-vous</router-link></li>
             <div class="separator"></div>
-            <li><router-link to="/connexion" @click.native="handleClickOutside">Se connecter</router-link></li>
+            <li><router-link to="/login" @click.native="handleClickOutside">Se connecter</router-link></li>
             <li><router-link to="/parametres" @click.native="handleClickOutside">Paramètres</router-link></li>
           </div>
         </ul>
