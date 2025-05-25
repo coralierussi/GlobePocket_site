@@ -20,14 +20,14 @@
       </div>
 
       <div class="contenu">
-        <div v-if="favoris.length === 0" class="empty-message">
+        <div v-if="favorisLocal.length === 0" class="empty-message">
           Vous n'avez pas de favoris.
         </div>
         <div v-else>
           <v-container fluid>
             <v-row dense>
               <v-col
-                v-for="(item, index) in favoris"
+                v-for="(item, index) in favorisLocal"
                 :key="index"
                 cols="12"
                 sm="6"
@@ -40,13 +40,13 @@
                     <div class="titre">{{ item.titre }}</div>
                     <div class="description">{{ item.description }}</div>
                     <!-- Bouton suppression en bas à droite DANS la carte -->
-                    <v-btn
+                    <!-- <v-btn
                       icon
                       class="btn-delete-inside"
                       @click="supprimerFavori(index)"
                     >
                       <v-icon color="red">mdi-delete</v-icon>
-                    </v-btn>
+                    </v-btn> -->
                   </v-card-text>
                 </v-card>
                 
@@ -69,13 +69,17 @@ export default {
     value: {
       type: Boolean,
       default: false
-    }
+    },
+     favoris: {
+      type: Array,
+      default: () => []
+    },
   },
   data() {
     return {
       open: this.value,
-      favoris: [],
-    };
+      favorisLocal: [...this.favoris]
+    }
   },
   watch: {
     value(val) {
@@ -83,14 +87,18 @@ export default {
     },
     open(val) {
       this.$emit('input', val);
-    }
+    },
+     favoris(newFavs) {
+      this.favorisLocal = [...newFavs];
+    },
   },
   methods: {
     close() {
       this.open = false;
     },
     supprimerFavori(index) {
-      this.favoris.splice(index, 1);
+      this.favorisLocal.splice(index, 1);
+      this.$emit('update:favoris', this.favorisLocal);
     }
   }
 }
