@@ -165,7 +165,14 @@
   </div>
 
     <div class="rdv">
-      
+      <div class="titre-rdv">
+        <p>Mes rendez-vous</p>
+      </div>
+      <div class="btn-rdv">
+        <router-link :to="'/calendrier'">
+          <p>Voir mes rendez-vous</p>
+        </router-link>
+      </div>
     </div>
 
 
