@@ -13,6 +13,7 @@ import ComptePage from './components/ComptePage.vue'
 import PaysPage from './components/PaysPage.vue'
 import CalendrierPage from './components/CalendrierPage.vue'
 import LoginForm from './components/LoginForm.vue'
+import ActiviteNewYork from './components/ActiviteNewYork.vue'
 import RegisterForm from './components/RegisterForm.vue'
 import VueRouter from 'vue-router'
 
@@ -76,6 +77,10 @@ const router = new VueRouter({
     {
       path: '/calendrier',
       component: CalendrierPage
+    },
+    {
+      path: '/activite/Etats-Unis-New-York',
+      component: ActiviteNewYork
     }
 ]
 })
