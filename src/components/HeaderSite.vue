@@ -14,6 +14,7 @@
             <li><router-link to="/transport" @click.native="handleClickOutside">Transport</router-link></li>
             <li><router-link to="/hebergement" @click.native="handleClickOutside">Hébergements</router-link></li>
             <li><router-link to="/activites" @click.native="handleClickOutside">Activités</router-link></li>
+            <li><router-link to="/location" @click.native="handleClickOutside">Location de véhicules</router-link></li>
             <li><router-link to="/pays" @click.native="handleClickOutside">Pays</router-link></li>
             <li><router-link to="/maValise" @click.native="handleClickOutside">Que mettre dans ma valise ?</router-link></li>
             <li><router-link to="/reservationGestion" @click.native="handleClickOutside">Gérer ma réservation</router-link></li>
@@ -79,7 +80,6 @@
           <div class="free">
             <li><router-link to="/compte" @click.native="handleClickOutside">Mon compte</router-link></li>
             <li><router-link to="/calendrier" @click.native="handleClickOutside">Mes rendez-vous</router-link></li>
-            <li><router-link to="/favoris" @click.native="handleClickOutside">Mes favoris</router-link></li>
             <div class="separator"></div>
             <li><router-link to="/connexion" @click.native="handleClickOutside">Se connecter</router-link></li>
             <li><router-link to="/parametres" @click.native="handleClickOutside">Paramètres</router-link></li>
