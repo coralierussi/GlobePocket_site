@@ -7,6 +7,7 @@ import ContactSite from './components/ContactSite.vue'
 import HebergementsPage from './components/HebergementsPage.vue'
 import IndexSite from './components/IndexSite.vue'
 import TransportsPage from './components/TransportsPage.vue'
+import LocationPage from './components/LocationPage.vue'
 import ValiseSite from './components/ValiseSite.vue'
 import FaqSite from './components/FaqSite.vue'
 import ComptePage from './components/ComptePage.vue'
@@ -47,6 +48,10 @@ const router = new VueRouter({
     {
       path: '/transport',
       component: TransportsPage
+    },
+    {
+      path: '/location',
+      component: LocationPage
     },
     {
       path: '/maValise',
