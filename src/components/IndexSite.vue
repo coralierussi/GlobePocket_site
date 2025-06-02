@@ -46,7 +46,7 @@
                     <div class="voyage">
                         <img class="img-voyage" src="../assets/Pictos/calendrier@4x.png" alt="">
                         <p class="number">2 500</p>
-                        <p class="text">voyage en une année</p>
+                        <p class="text">voyages en une année</p>
                     </div>
                     <div class="voyage">
                         <img class="img-voyage" src="../assets/Pictos/chaussure@4x.png" alt="">
