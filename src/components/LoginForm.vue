@@ -12,7 +12,7 @@
           <div class="img-connexion">
             <img class="img-logo-connexion" src="../assets/Logo/logo original@4x.png" alt="">
             <p class="phrase-connexion">Bons plans, itinéraires, communauté : votre voyage prêt en quelques minutes.</p>
-            <div class="google btn-auth">
+            <!-- <div class="google btn-auth">
               <img class="icon-google" src="../assets/Logo/google.png" alt="">
               <p class="text-connect-with">Se connecter avec Google</p>
             </div>
@@ -21,7 +21,7 @@
               <p class="text-connect-with">Se connecter avec Facebook</p>
             </div>
 
-            <p class="ou">ou</p>
+            <p class="ou">ou</p> -->
 
 
             <v-container class="login-container" fluid>
@@ -30,6 +30,18 @@
                         <v-card outlined>
                             <v-card-text>
                             <v-form v-model="valid" style="width: 60%; margin: 0% 20%;">
+                              <v-text-field
+                              label="Nom"
+                              v-model="name"
+                              :rules="nameRules"
+                              outlined
+                              dense
+                              required
+                              hide-details
+                              rounded
+                              type="text"
+                              style="margin-bottom: 5%;"
+                            ></v-text-field>
                                 <v-text-field
                                   label="Email"
                                   v-model="email"
@@ -66,10 +78,10 @@
 
 
             <div class="forget d-flex" >
-  <div class="souvenir d-flex" style="align-items: center;">
+  <!-- <div class="souvenir d-flex" style="align-items: center;">
     <v-checkbox v-model="remember" hide-details dense></v-checkbox>
     <p class="text-forget-souvenir">Se rappeler de moi</p>
-  </div>
+  </div> -->
   <div class="forget-password">
     <a href="#" class="text-forget-souvenir">Mot de passe oublié ?</a>
   </div>
@@ -109,6 +121,11 @@ export default {
       password: '',
       showPassword: false,
       valid: false,
+      name: '',
+      nameRules: [
+        v => !!v || 'Nom requis',
+        v => (v && v.length <= 20) || 'Le nom doit contenir au plus 20 caractères',
+      ],
       emailRules: [
         v => !!v || 'Email requis',
         v => /.+@.+\..+/.test(v) || 'Email invalide',
@@ -187,7 +204,7 @@ p{
           text-align: center;
           margin: 0% 20%;
           color: #EAA854;
-          border-bottom: 1px solid black;
+          /* border-bottom: 1px solid black; */
           padding-bottom: 25px;
         }
         .btn-auth {
