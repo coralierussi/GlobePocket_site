@@ -4,15 +4,15 @@
 
     <h1 class="titre">Mon compte</h1>
 
-     <div>
-    <!-- Pseudo et Description -->
     <div>
-      <div class="user-json">
-        <p>{{ JSON.stringify(user) }}</p>
-        <p>token: {{ token }}</p>
-      </div>
-    <!-- PSEUDO -->
-    <div class="pseudo d-flex" style="align-items: center;">
+      <!-- Pseudo et Description -->
+      <div>
+        <div class="user-json">
+          <p>{{ JSON.stringify(user) }}</p>
+          <p>token: {{ token }}</p>
+        </div>
+        <!-- PSEUDO -->
+        <div class="pseudo d-flex" style="align-items: center;">
       <div class="img-avatar"></div>
 
       <div v-if="isEditingPseudo" style="margin-left: 10px;">
@@ -33,10 +33,10 @@
       <v-btn icon small @click="toggleEditPseudo" class="ml-2">
         <v-icon>{{ isEditingPseudo ? 'mdi-content-save' : 'mdi-pencil' }}</v-icon>
       </v-btn>
-    </div>
-
-    <!-- DESCRIPTION -->
-<div class="description d-flex" style="align-items: center; margin-top: 20px; max-width: 400px;">
+        </div>
+      
+        <!-- DESCRIPTION -->
+        <div class="description d-flex" style="align-items: center; margin-top: 20px; max-width: 400px;">
   <div style="flex: 1;">
     <div v-if="isEditingDescription">
       <textarea type="text" v-model="editedDescription" @keydown.esc="cancelDescription" style="width: 100%;"></textarea>
@@ -49,15 +49,13 @@
   <v-btn icon small @click="toggleEditDescription" class="ml-2">
     <v-icon>{{ isEditingDescription ? 'mdi-content-save' : 'mdi-pencil' }}</v-icon>
   </v-btn>
-</div>
-
-    <!-- Input fichiers  -->
-    <input type="file" multiple ref="fileInput" @change="handleFileUpload" style="display: none;" />
-  </div>
-
-   
-    <input type="file" multiple ref="fileInput" @change="handleFileUpload" style="display: none;" />
-  </div>
+        </div>
+      
+        <!-- Input fichiers  -->
+        <input type="file" multiple ref="fileInput" @change="handleFileUpload" style="display: none;" />
+      </div>
+      <input type="file" multiple ref="fileInput" @change="handleFileUpload" style="display: none;" />
+    </div>
 
     <div class="documents">
   <div class="titre-doc d-flex">
