@@ -7,6 +7,10 @@
      <div>
     <!-- Pseudo et Description -->
     <div>
+      <div class="user-json">
+        <p>{{ JSON.stringify(user) }}</p>
+        <p>token: {{ token }}</p>
+      </div>
     <!-- PSEUDO -->
     <div class="pseudo d-flex" style="align-items: center;">
       <div class="img-avatar"></div>
@@ -199,7 +203,9 @@ export default {
   },
   data() {
   return {
+    user: null,
     // fichiers
+    token: localStorage.getItem('token') || '',
     openDrawer: false,
     openGallery: false,
     filePreviews: [],
@@ -230,6 +236,25 @@ watch: {
       url: URL.createObjectURL(file)
     }));
   }
+},
+mounted() {
+  fetch("http://localhost:1337/api/users/photos", {
+    method: 'PUT',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${this.token}`
+    },
+    body: JSON.stringify({
+      galerie: ["http://localhost:8080/img/logo%20original@4x.edca1362.png"]
+    })
+  }).then(response => response.json())
+    .then(data => {
+      console.log('Données utilisateur récupérées :', data);
+      this.user = data;
+    })
+    .catch(error => {
+      console.error('Erreur lors de la récupération des données utilisateur :', error);
+    });
 },
 
 
