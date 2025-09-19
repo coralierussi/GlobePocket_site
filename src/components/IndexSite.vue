@@ -6,7 +6,7 @@
             <img class="img-montagne" src="../assets/PhotosSite/header.jpeg" alt="Image montagne" >
             <div class="text-presentation">
                 <h1>
-                    Bons plans, itinéraires, communauté : votre voyage prêt en quelques minutes.
+                    Malin, humain, toujours à vos côtés pour vous faire faire voyager.
                 </h1>
             </div>
         </div>
