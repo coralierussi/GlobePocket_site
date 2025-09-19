@@ -51,11 +51,11 @@
   </v-btn>
 </div>
 
-    <!-- Input fichiers (inchangé) -->
+    <!-- Input fichiers  -->
     <input type="file" multiple ref="fileInput" @change="handleFileUpload" style="display: none;" />
   </div>
 
-    <!-- Tu peux ici garder tout le reste de ton template pour les fichiers -->
+   
     <input type="file" multiple ref="fileInput" @change="handleFileUpload" style="display: none;" />
   </div>
 
