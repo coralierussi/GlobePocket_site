@@ -3,14 +3,15 @@
     <HeaderSiteColor/>
 
     <h1 class="titre">Mon compte</h1>
+    
+    <div class="user-json">
+       <p>{{ JSON.stringify(user) }}</p>
+       <p>token: {{ token }}</p>
+     </div>
 
     <div>
       <!-- Pseudo et Description -->
       <div>
-        <div class="user-json">
-          <p>{{ JSON.stringify(user) }}</p>
-          <p>token: {{ token }}</p>
-        </div>
         <!-- PSEUDO -->
         <div class="pseudo d-flex" style="align-items: center;">
       <div class="img-avatar"></div>
@@ -236,15 +237,12 @@ watch: {
   }
 },
 mounted() {
-  fetch("http://localhost:1337/api/users/photos", {
-    method: 'PUT',
+  fetch(process.env.VUE_APP_API_URL + "/users/photos", {
+    method: 'GET',
     headers: {
       'Content-Type': 'application/json',
       'Authorization': `Bearer ${this.token}`
-    },
-    body: JSON.stringify({
-      galerie: ["http://localhost:8080/img/logo%20original@4x.edca1362.png"]
-    })
+    }
   }).then(response => response.json())
     .then(data => {
       console.log('Données utilisateur récupérées :', data);
