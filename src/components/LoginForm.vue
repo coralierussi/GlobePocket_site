@@ -117,6 +117,9 @@ export default {
   name: 'LoginForm',
   data() {
     return {
+      user: null,
+      token: localStorage.getItem('token') || '',
+
       email: '',
       password: '',
       showPassword: false,
@@ -138,7 +141,7 @@ export default {
   },
   methods: {
     async submit() {
-  const res = await fetch(process.env.VUE_APP_API_URL + '/login', {
+  const res = await fetch(process.env.VUE_APP_API_URL + 'auth/login', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ email: this.email, password: this.password })
