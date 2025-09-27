@@ -237,6 +237,7 @@ watch: {
   }
 },
 mounted() {
+  // Récupération des photos utilisateur
   fetch(process.env.VUE_APP_API_URL + "/users/photos", {
     method: 'GET',
     headers: {
@@ -252,6 +253,7 @@ mounted() {
       console.error('Erreur lors de la récupération des données utilisateur :', error);
     });
 
+  // Update des photos utilisateur
   fetch (process.env.VUE_APP_API_URL + '/users/photos', {
     method: 'PUT',
     headers: {
@@ -268,6 +270,7 @@ mounted() {
       console.error('Erreur lors de l\'ajout des photos :', error);
     });
 
+  // Ajout des documents utilisateur
   fetch (process.env.VUE_APP_API_URL + '/users/documents', {
     method: 'POST',
     headers: {
