@@ -30,18 +30,6 @@
                         <v-card outlined>
                             <v-card-text>
                             <v-form v-model="valid" style="width: 60%; margin: 0% 20%;">
-                              <v-text-field
-                              label="Nom"
-                              v-model="name"
-                              :rules="nameRules"
-                              outlined
-                              dense
-                              required
-                              hide-details
-                              rounded
-                              type="text"
-                              style="margin-bottom: 5%;"
-                            ></v-text-field>
                                 <v-text-field
                                   label="Email"
                                   v-model="email"
