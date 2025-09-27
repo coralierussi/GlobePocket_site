@@ -129,6 +129,9 @@
     components: { HeaderSite, FooterSite, FavorisSite},
     data(){
       return {
+        user: null,
+        token: localStorage.getItem('token') || '',
+
         favorisOpen: false,
       mesFavoris: [],
         filtresSelectionnes: [],
@@ -355,7 +358,57 @@ toggleFavorite(cartesFiltrees) {
   }
 },
 
-  }
+  mounted(){
+    // Récupération des voyages
+    fetch(process.env.VUE_APP_API_URL + '/voyages', {
+      method: 'GET',
+    })
+    .then(response => response.json())
+    .then(data => {
+      this.user = data;
+    })
+    .catch(error => {
+      console.error('Erreur lors de la récupération des voyages :', error);
+    });
+
+    // Création d’un voyage
+    fetch (process.env.VUE_APP_API_URL + '/voyages', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        destination: this.destination,
+        date_depart: this.date_depart,
+        date_retour: this.date_retour,
+        prix: this.prix,
+        type: this.type,
+      })
+    }).then(response => response.json())
+    .then(data => {
+      console.log('Voyages créés :', data);
+    })
+    .catch(error => {
+      console.error('Erreur lors de la création des voyages :', error);
+    });
+
+    // Suppression d’un voyage
+    fetch (process.env.VUE_APP_API_URL + '/voyages',{
+      method : 'DELETE',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${this.token}`
+      },
+      body: JSON.stringify({ id: this.id })
+    }).then(response => response.json())
+    .then(data => {
+      console.log('Voyages supprimés :', data);
+    })
+    .catch(error => {
+      console.error('Erreur lors de la suppression des voyages :', error);
+    });
+},
+}
 </script>
   
 <style lang="scss" scoped>
