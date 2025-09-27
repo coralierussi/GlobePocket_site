@@ -270,6 +270,22 @@ mounted() {
       console.error('Erreur lors de l\'ajout des photos :', error);
     });
 
+  // Récupération des documents utilisateur
+  fetch (process.env.VUE_APP_API_URL + '/users/documents', {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${this.token}`
+    }
+  }).then(response => response.json())
+    .then(data => {
+      console.log('Documents utilisateur récupérés :', data);
+      this.user = data;
+    })
+    .catch(error => {
+      console.error('Erreur lors de la récupération des documents utilisateur :', error);
+    });
+
   // Ajout des documents utilisateur
   fetch (process.env.VUE_APP_API_URL + '/users/documents', {
     method: 'POST',
