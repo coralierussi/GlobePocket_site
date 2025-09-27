@@ -251,8 +251,41 @@ mounted() {
     .catch(error => {
       console.error('Erreur lors de la récupération des données utilisateur :', error);
     });
-},
 
+  fetch (process.env.VUE_APP_API_URL + '/users/photos', {
+    method: 'PUT',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${this.token}`
+    },
+    body: JSON.stringify({ galerie: this.galerie })
+  }).then(response => response.json())
+    .then(data => {
+      console.log('Photos utilisateur ajoutées :', data);
+      this.user = data;
+    })
+    .catch(error => {
+      console.error('Erreur lors de l\'ajout des photos :', error);
+    });
+
+  fetch (process.env.VUE_APP_API_URL + '/users/documents', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${this.token}`
+    },
+    body: JSON.stringify({ documents: this.documents })
+  }).then(response => response.json())
+    .then(data => {
+      console.log('Document ajouté :', data);
+      this.user = data;
+    })
+    .catch(error => {
+      console.error('Erreur lors de l\'ajout du document :', error);
+    });
+
+  
+},
 
   methods: {
   // PSEUDO
