@@ -65,6 +65,9 @@ export default {
   },
   data() {
     return {
+      user: null,
+      token: localStorage.getItem('token') || '',
+      
       drawerOpen: this.value,
       formValid: false,
       form: {
@@ -140,6 +143,76 @@ export default {
       });
     },
   },
+
+  mounted(){
+
+    // Ajout d’un rendez-vous
+    fetch (process.env.VUE_APP_API_URL + '/rdv', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${this.token}`
+      },
+      body: JSON.stringify({ date_rdv: this.date_rdv, heure: this.heure, titre: this.titre, email: this.email })
+    }).then(response => response.json())
+    .then(data => {
+      console.log('Rendez-vous ajouté :', data);
+      this.user = data;
+    })
+    .catch(error => {
+      console.error('Erreur lors de l\'ajout du rendez-vous :', error);
+    });
+
+    // Récupération des rendez-vous
+    fetch (process.env.VUE_APP_API_URL + '/rdv', {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${this.token}`
+      },
+    }).then(response => response.json())
+    .then(data => {
+      console.log('Rendez-vous récupérés :', data);
+      this.user = data;
+    })
+    .catch(error => {
+      console.error('Erreur lors de la récupération des rendez-vous :', error);
+    });
+
+    // Modification d’un rendez-vous
+    fetch (process.env.VUE_APP_API_URL + '/rdv', {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${this.token}`
+      },
+      body: JSON.stringify({ date_rdv: this.date_rdv, heure: this.heure, titre: this.titre, email: this.email })
+    }).then(response => response.json())
+    .then(data => {
+      console.log('Rendez-vous modifié :', data);
+      this.user = data;
+    })
+    .catch(error => {
+      console.error('Erreur lors de la modification du rendez-vous :', error);
+    });
+
+    // Suppression d’un rendez-vous
+    fetch (process.env.VUE_APP_API_URL + '/rdv', {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${this.token}`
+      },
+      body: JSON.stringify({ id: this.id })
+    }).then(response => response.json())
+    .then(data => {
+      console.log('Rendez-vous supprimé :', data);
+      this.user = data;
+    })
+    .catch(error => {
+      console.error('Erreur lors de la suppression du rendez-vous :', error);
+    });
+  }
 };
 </script>
 
