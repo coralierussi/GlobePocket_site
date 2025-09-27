@@ -77,6 +77,9 @@ export default {
   },
   data() {
     return {
+      user: null,
+      token: localStorage.getItem('token') || '',
+
       open: this.value,
       favorisLocal: [...this.favoris]
     }
@@ -100,6 +103,23 @@ export default {
       this.favorisLocal.splice(index, 1);
       this.$emit('update:favoris', this.favorisLocal);
     }
+  },
+
+  mounted(){
+    fetch (process.env.VUE_APP_API_URL + '/voyages/users', {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${this.token}`
+      },
+    }).then(response => response.json())
+    .then(data => {
+      console.log('Favoris récupérés :', data);
+      this.user = data;
+    })
+    .catch(error => {
+      console.error('Erreur lors de la récupération des favoris :', error);
+    });
   }
 }
 </script>
