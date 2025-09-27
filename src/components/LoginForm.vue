@@ -129,20 +129,20 @@ export default {
   },
   methods: {
     async submit() {
-  const res = await fetch(process.env.VUE_APP_API_URL + 'auth/login', {
+  const res = await fetch(process.env.VUE_APP_API_URL + '/auth/login', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ email: this.email, password: this.password })
   });
+const data = await res.json();
 
-  if (!res.ok) {
-    alert('Échec de la connexion');
-    return;
-  }
-
-  const data = await res.json();
-  localStorage.setItem('token', data.token);
-  this.$router.push('/compte');
+      if (res.ok) {
+        alert(data.message);
+        localStorage.setItem('token', data.token);
+        this.$router.push('/compte'); // redirige vers la page compte
+      } else {
+        alert(data.message || 'Erreur à l’inscription');
+      }
 }
   },
 };
