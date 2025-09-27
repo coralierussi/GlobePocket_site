@@ -13,18 +13,6 @@
             <img class="img-logo-connexion" src="../assets/Logo/logo original@4x.png" alt="">
             <p class="phrase-connexion">Bons plans, itinéraires, communauté : votre voyage prêt en quelques minutes.</p>
             
-            <!-- <div class="google btn-auth">
-              <img class="icon-google" src="../assets/Logo/google.png" alt="">
-              <p class="text-connect-with">S'inscrire avec Google</p>
-            </div>
-            <div class="facebook btn-auth">
-              <img class="icon-facebook" src="../assets/Logo/facebook.png" alt="">
-              <p class="text-connect-with">S'inscrire avec Facebook</p>
-            </div> -->
-
-            <!-- <p class="ou">ou</p> -->
-
-
             <v-container class="login-container" fluid>
                 <v-row justify="center" align="center">
                   <v-col>
@@ -108,6 +96,9 @@ export default {
     name: 'RegisterForm',
   data() {
     return {
+      user: null,
+      token: localStorage.getItem('token') || '',
+
       email: '',
       password: '',
       showPassword: false,
@@ -127,24 +118,42 @@ export default {
       ],
     };
   },
-  methods: {
-    async submit() {
-      const res = await fetch('http://localhost:1337/api/auth/register', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email: this.email, password: this.password, name:this.name })
-      });
+  // methods: {
+  //   async submit() {
+  //     const res = await fetch(process.env.VUE_APP_API_URL + 'auth/register', {
+  //       method: 'POST',
+  //       headers: { 'Content-Type': 'application/json' },
+  //       body: JSON.stringify({ email: this.email, password: this.password, name:this.name })
+  //     });
 
-      const data = await res.json();
+  //     const data = await res.json();
 
-      if (res.ok) {
-        alert(data.message);
-        this.$router.push('/compte'); // redirige vers la page compte
-      } else {
-        alert(data.message || 'Erreur à l’inscription');
-      }
-    }
-  }
+  //     if (res.ok) {
+  //       alert(data.message);
+  //       this.$router.push('/compte'); // redirige vers la page compte
+  //     } else {
+  //       alert(data.message || 'Erreur à l’inscription');
+  //     }
+  //   }
+  // },
+  mounted() {
+  fetch(process.env.VUE_APP_API_URL + 'auth/register', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ email: this.email, password: this.password, name:this.name })
+  }).then(response => response.json())
+    .then(data => {
+      console.log('Utilisateur créé :', data);
+      this.user = data;
+      localStorage.setItem('token', data.token);
+      this.$router.push('/compte'); // redirige vers la page compte
+    })
+    .catch(error => {
+      console.error('Erreur lors de la création de l\'utilisateur :', error);
+    });
+},
 };
 </script>
 
