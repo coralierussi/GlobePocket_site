@@ -129,21 +129,20 @@ export default {
   },
   methods: {
     async submit() {
-  const res = await fetch(process.env.VUE_APP_API_URL + '/auth/login', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ email: this.email, password: this.password })
-  });
-const data = await res.json();
-
+      const res = await fetch(process.env.VUE_APP_API_URL + '/auth/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email: this.email, mdp: this.password })
+      });
+      
       if (res.ok) {
-        alert(data.message);
+        const data = await res.json();
         localStorage.setItem('token', data.token);
         this.$router.push('/compte'); // redirige vers la page compte
       } else {
-        alert(data.message || 'Erreur à l’inscription');
+        alert('Erreur à l’inscription');
       }
-}
+    }
   },
 };
 </script>
