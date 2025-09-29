@@ -66,11 +66,10 @@ export default {
       rdvs: [
         {
             id:1,
-          name: 'Test RDV',
-          start: '2025-05-24T10:00:00',
-          end: '2025-05-24T10:00:00',
-          title: 'Test RDV à 10:00',
-          color: 'blue',
+          name: 'RDV',
+          start: '2025-10-03T10:00:00',
+          end: '2025-10-03T10:30:00',
+          title: 'RDV à 10:00',
         },
       ],
     };
@@ -128,6 +127,58 @@ supprimerRdv(id) {
       date.setMonth(date.getMonth() + 1);
       this.selectedDate = date.toISOString().substr(0, 10);
     },
+  },
+  mounted(){
+
+    // Ajout d’un rendez-vous
+    fetch (process.env.VUE_APP_API_URL + '/rdv', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${this.token}`
+      },
+      body: JSON.stringify({ date_rdv: this.date_rdv, heure: this.heure, titre: this.titre, email: this.email })
+    }).then(response => response.json())
+    .then(data => {
+      console.log('Rendez-vous ajouté :', data);
+      this.user = data;
+    })
+    .catch(error => {
+      console.error('Erreur lors de l\'ajout du rendez-vous :', error);
+    });
+    // Modification d’un rendez-vous
+    fetch (process.env.VUE_APP_API_URL + '/rdv', {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${this.token}`
+      },
+      body: JSON.stringify({ date_rdv: this.date_rdv, heure: this.heure, titre: this.titre, email: this.email })
+    }).then(response => response.json())
+    .then(data => {
+      console.log('Rendez-vous modifié :', data);
+      this.user = data;
+    })
+    .catch(error => {
+      console.error('Erreur lors de la modification du rendez-vous :', error);
+    });
+
+    // Suppression d’un rendez-vous
+    fetch (process.env.VUE_APP_API_URL + '/rdv', {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${this.token}`
+      },
+      body: JSON.stringify({ id: this.id })
+    }).then(response => response.json())
+    .then(data => {
+      console.log('Rendez-vous supprimé :', data);
+      this.user = data;
+    })
+    .catch(error => {
+      console.error('Erreur lors de la suppression du rendez-vous :', error);
+    });
   }
 };
 </script>
