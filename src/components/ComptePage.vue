@@ -215,12 +215,12 @@ export default {
 
     // édition pseudo
     isEditingPseudo: false,
-    pseudo: 'Pseudo',
+    pseudo: this.pseudo,
     editedPseudo: '',
 
     // édition description
     isEditingDescription: false,
-    description: 'Description ici',
+    description: this.description,
     editedDescription: '',
     galleryFiles: [],
 galleryPreviews: [],
@@ -237,6 +237,23 @@ watch: {
   }
 },
 mounted() {
+
+  fetch (process.env.VUE_APP_API_URL + '/users', {
+    method: 'PUT',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${this.token}`
+    },
+    body: JSON.stringify({ pseudo: this.pseudo, description: this.description })
+  }).then(response => response.json())
+    .then(data => {
+      console.log('Données utilisateur mises à jour :', data);
+      this.user = data;
+    })
+    .catch(error => {
+      console.error('Erreur lors de la mise à jour des données utilisateur :', error);
+    });
+
   // Récupération des photos utilisateur
   fetch(process.env.VUE_APP_API_URL + "/users/photos", {
     method: 'GET',
