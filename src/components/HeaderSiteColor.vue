@@ -147,6 +147,8 @@ li {
 .header {
   width: 100%;
   height: 100px;
+  justify-content: space-around;
+
 
   .logo {
     width: 250px;

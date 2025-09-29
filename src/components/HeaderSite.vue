@@ -148,6 +148,7 @@ li {
   background-color: rgba(0, 0, 0, 0.2);
   width: 100%;
   height: 100px;
+  justify-content: space-around;
 
   .logo {
     width: 250px;
