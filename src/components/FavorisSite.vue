@@ -39,14 +39,6 @@
                   <v-card-text>
                     <div class="titre">{{ item.titre }}</div>
                     <div class="description">{{ item.description }}</div>
-                    <!-- Bouton suppression en bas à droite DANS la carte -->
-                    <!-- <v-btn
-                      icon
-                      class="btn-delete-inside"
-                      @click="supprimerFavori(index)"
-                    >
-                      <v-icon color="red">mdi-delete</v-icon>
-                    </v-btn> -->
                   </v-card-text>
                 </v-card>
                 
