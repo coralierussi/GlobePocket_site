@@ -14,7 +14,6 @@
       <div>
         <!-- PSEUDO -->
         <div class="pseudo d-flex" style="align-items: center;">
-      <div class="img-avatar"></div>
 
       <div v-if="isEditingPseudo" style="margin-left: 10px;">
         <input
@@ -223,7 +222,7 @@ export default {
     description: this.description,
     editedDescription: '',
     galleryFiles: [],
-galleryPreviews: [],
+    galleryPreviews: [],
 
   };
 },
@@ -287,38 +286,38 @@ mounted() {
       console.error('Erreur lors de l\'ajout des photos :', error);
     });
 
-  // Récupération des documents utilisateur
-  fetch (process.env.VUE_APP_API_URL + '/users/documents', {
-    method: 'GET',
-    headers: {
-      'Content-Type': 'application/json',
-      'Authorization': `Bearer ${this.token}`
-    }
-  }).then(response => response.json())
-    .then(data => {
-      console.log('Documents utilisateur récupérés :', data);
-      this.user = data;
-    })
-    .catch(error => {
-      console.error('Erreur lors de la récupération des documents utilisateur :', error);
-    });
+  // // Récupération des documents utilisateur
+  // fetch (process.env.VUE_APP_API_URL + '/users/documents', {
+  //   method: 'GET',
+  //   headers: {
+  //     'Content-Type': 'application/json',
+  //     'Authorization': `Bearer ${this.token}`
+  //   }
+  // }).then(response => response.json())
+  //   .then(data => {
+  //     console.log('Documents utilisateur récupérés :', data);
+  //     this.user = data;
+  //   })
+  //   .catch(error => {
+  //     console.error('Erreur lors de la récupération des documents utilisateur :', error);
+  //   });
 
-  // Ajout des documents utilisateur
-  fetch (process.env.VUE_APP_API_URL + '/users/documents', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      'Authorization': `Bearer ${this.token}`
-    },
-    body: JSON.stringify({ documents: this.documents })
-  }).then(response => response.json())
-    .then(data => {
-      console.log('Document ajouté :', data);
-      this.user = data;
-    })
-    .catch(error => {
-      console.error('Erreur lors de l\'ajout du document :', error);
-    });
+  // // Ajout des documents utilisateur
+  // fetch (process.env.VUE_APP_API_URL + '/users/documents', {
+  //   method: 'POST',
+  //   headers: {
+  //     'Content-Type': 'application/json',
+  //     'Authorization': `Bearer ${this.token}`
+  //   },
+  //   body: JSON.stringify({ documents: this.documents })
+  // }).then(response => response.json())
+  //   .then(data => {
+  //     console.log('Document ajouté :', data);
+  //     this.user = data;
+  //   })
+  //   .catch(error => {
+  //     console.error('Erreur lors de l\'ajout du document :', error);
+  //   });
 
   
 },
@@ -375,16 +374,7 @@ mounted() {
     this.files.push(...uploadedFiles);
     this.filePreviews.push(...newPreviews);
   },
-  getFileIcon(file) {
-    const type = file.type;
-    if (type.includes('pdf')) return 'mdi-file-pdf-box';
-    if (type.includes('image')) return 'mdi-file-image';
-    if (type.includes('video')) return 'mdi-file-video';
-    if (type.includes('audio')) return 'mdi-file-music';
-    if (type.includes('spreadsheet') || file.name.match(/\.(xls|xlsx|csv)$/i)) return 'mdi-file-excel-box';
-    if (type.includes('word') || file.name.match(/\.(doc|docx)$/i)) return 'mdi-file-word-box';
-    return 'mdi-file-document-outline';
-  },
+ 
   openFilePreview(file) {
     this.selectedFile = file;
     this.showFileViewer = true;
