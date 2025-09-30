@@ -8,7 +8,7 @@ test('Filter activities by type', async ({ page }) => {
   await page.getByText("Type d'activité").click();
 
   // Check the "Visites culturelles" checkbox
-  await page.getByLabel('Visites culturelles').check();
+  await page.getByRole('checkbox', { name: 'Visites culturelles' }).click();
 
   // Assert that there are 4 activity cards visible
   await expect(page.locator('.carte-activites')).toHaveCount(4);
