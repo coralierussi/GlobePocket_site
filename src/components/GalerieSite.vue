@@ -164,11 +164,11 @@ export default {
     }
   }).then(response => response.json())
     .then(data => {
-      console.log('Données utilisateur récupérées :', data);
+      console.log('Photos utilisateur récupérées :', data);
       this.user = data;
     })
     .catch(error => {
-      console.error('Erreur lors de la récupération des données utilisateur :', error);
+      console.error('Erreur lors de la récupération des photos utilisateur :', error);
     });
 
     // Update des photos utilisateur
