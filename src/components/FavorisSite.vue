@@ -20,33 +20,46 @@
       </div>
 
       <div class="contenu">
-        <div v-if="favorisLocal.length === 0" class="empty-message">
-          Vous n'avez pas de favoris.
-        </div>
-        <div v-else>
-          <v-container fluid>
-            <v-row dense>
-              <v-col
-                v-for="(item, index) in favorisLocal"
-                :key="index"
-                cols="12"
-                sm="6"
-                md="4"
-                class="position-relative"
-              >
-                <!-- Carte carré -->
-                <v-card class="favori-card" outlined>
-                  <v-card-text>
-                    <div class="titre">{{ item.titre }}</div>
-                    <div class="description">{{ item.description }}</div>
-                  </v-card-text>
-                </v-card>
-                
-              </v-col>
-            </v-row>
-          </v-container>
-        </div>
-      </div>
+  <div v-if="favoris.length === 0" class="empty-message">
+    Vous n'avez pas de favoris.
+  </div>
+
+  <div v-else>
+    <v-container fluid>
+      <v-row dense>
+        <v-col
+          v-for="item in favoris"
+          :key="item.id"
+          cols="12"
+          sm="6"
+          md="4"
+          class="position-relative"
+        >
+          <v-card class="favori-card" outlined>
+            <v-img :src="item.image" height="150px" class="white--text align-end">
+                <v-card-title>{{ item.name }}</v-card-title>
+            </v-img>
+
+            <v-card-text>
+              <div>{{ item.description }}</div>
+            </v-card-text>
+            
+            <v-card-actions>
+                <v-spacer></v-spacer>
+                <v-btn 
+                  icon 
+                  @click="$emit('update:favoris')" 
+                  title="Supprimer des favoris"
+                >
+                    <v-icon color="red">mdi-heart</v-icon>
+                </v-btn>
+            </v-card-actions>
+          </v-card>
+        </v-col>
+      </v-row>
+    </v-container>
+  </div>
+</div>
     </v-navigation-drawer>
   </div>
 </template>
@@ -57,62 +70,37 @@
 <script>
 export default {
   name: 'FavorisSite',
-   props: {
+  props: {
     value: {
       type: Boolean,
       default: false
     },
-     favoris: {
+    favoris: {
       type: Array,
       default: () => []
     },
   },
   data() {
     return {
-      user: null,
-      token: localStorage.getItem('token') || '',
-
       open: this.value,
-      favorisLocal: [...this.favoris]
+      // ON SUPPRIME favorisLocal !
     }
   },
   watch: {
-    value(val) {
-      this.open = val;
-    },
-    open(val) {
-      this.$emit('input', val);
-    },
-     favoris(newFavs) {
-      this.favorisLocal = [...newFavs];
-    },
+    value(val) { this.open = val; },
+    open(val) { this.$emit('input', val); },
   },
   methods: {
     close() {
       this.open = false;
     },
-    supprimerFavori(index) {
-      this.favorisLocal.splice(index, 1);
-      this.$emit('update:favoris', this.favorisLocal);
+    // MÉTHODE MISE À JOUR : elle ne fait qu'émettre un événement
+    supprimerFavori(item) {
+        // On demande au parent de gérer la suppression pour cet item
+        // On peut directement appeler la méthode du parent qui fait le toggle
+        this.$emit('toggle-favorite', item);
     }
   },
-
-  mounted(){
-    fetch (process.env.VUE_APP_API_URL + '/voyages/users', {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${this.token}`
-      },
-    }).then(response => response.json())
-    .then(data => {
-      console.log('Favoris récupérés :', data);
-      this.user = data;
-    })
-    .catch(error => {
-      console.error('Erreur lors de la récupération des favoris :', error);
-    });
-  }
 }
 </script>
 

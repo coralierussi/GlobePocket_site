@@ -16,19 +16,6 @@
 
         <div class="filtres-activites d-flex">
             <div class="filtres">
-                <div class="filtres-envie">
-                    <p>Qu'as-tu envie de faire ?</p>
-                    <div class="type-filtre" v-for="(envieFiltre, index) in enviesFiltre" :key="index">
-                        <div class="type-envie-filtres d-flex">
-                            <img class="icon-filtre" :src="envieFiltre.image" :alt="envieFiltre.nom">
-                            <p>{{ envieFiltre.nom }}</p>
-                        </div>
-                    </div>
-                    <v-btn class="btn-filtre d-flex">
-                        <p class="text-btn-filtre">Chercher</p>
-                        <v-icon class="icon-btn-filtre">mdi-magnify</v-icon>
-                    </v-btn>
-                </div>
                 <div class="filtres-recherche">
                     <p class="titre-filtre">Filtres de recherche</p>
                     <div class="filtre">
@@ -110,32 +97,30 @@
 
          <!-- Popup Favoris -->
     <FavorisSite 
-      v-model="favorisOpen" 
-      :favoris="mesFavoris"
-      @update:favoris="mesFavoris = $event"
-    />
+  v-model="favorisOpen" 
+  :favoris="cartesFavorites" 
+  @update:favoris="fetchFavoris" />
 
         <FooterSite/>
     </main>
   </template>
   
-  <script>
-  import HeaderSite from './HeaderSite.vue';
-  import FooterSite from './FooterSite.vue';
-  import FavorisSite from './FavorisSite.vue';
-  
-  export default {
-    name: 'ActivitesPage',
-    components: { HeaderSite, FooterSite, FavorisSite},
-    data(){
-      return {
-        user: null,
-        token: localStorage.getItem('token') || '',
+<script>
+import HeaderSite from './HeaderSite.vue';
+import FooterSite from './FooterSite.vue';
+import FavorisSite from './FavorisSite.vue';
 
-        favorisOpen: false,
+export default {
+  name: 'ActivitesPage',
+  components: { HeaderSite, FooterSite, FavorisSite },
+  data() {
+    return {
+      user: null,
+      token: localStorage.getItem('token') || '',
+      favorisOpen: false,
       mesFavoris: [],
-        filtresSelectionnes: [],
-        cartes:[
+      filtresSelectionnes: [],
+      cartes:[
             {
                 id:1,
                 name: "Italie, Rome",
@@ -246,20 +231,6 @@
             },
 
       ],
-      enviesFiltre:[
-            {
-            nom: "Destination",
-            image : require ("@/assets/Pictos/globe@4x.png"),
-        },
-        {
-            nom: "Types d'activité",
-            image : require ("@/assets/Pictos/masque@4x.png")
-        },
-        {
-            nom: "Nombre de personnes",
-            image : require ("@/assets/Pictos/sac@4x.png")
-        }
-      ],
         filtres:[
             {
                 nom: "Destination",
@@ -325,90 +296,132 @@
                 sous: [],
             },
 
-        ],
+        ], 
+    }
+  },
+  methods: {
+    async fetchFavoris() {
+      try {
+        const response = await fetch(process.env.VUE_APP_API_URL + "/user_favoris", {
+          headers: { 'Authorization': `Bearer ${this.token}` }
+        });
+        const favorisData = await response.json();
+        
+        // On récupère juste les IDs des voyages favoris
+        const favorisIds = favorisData.map(fav => fav.voyageId);
+
+        // On met à jour notre liste de cartes principale
+        this.cartes.forEach(carte => {
+          carte.favorite = favorisIds.includes(carte.id);
+        });
+      } catch (error) {
+        console.error('Erreur lors de la récupération des favoris :', error);
       }
     },
-  methods: {
 
-toggleFavorite(cartesFiltrees) {
-     cartesFiltrees.favorite = !cartesFiltrees.favorite;
-      const index = this.mesFavoris.findIndex(f => f.index === cartesFiltrees.index);
-      if (index === -1) {
-        this.mesFavoris.push(cartesFiltrees);
-      } else {
-        this.mesFavoris.splice(index, 1);
+    // MÉTHODE MISE À JOUR : elle ne fait que l'appel API et rafraîchit
+    async toggleFavorite(carte) {
+      // carte.favorite = !carte.favorite;
+      // const index = this.mesFavoris.findIndex(f => f.index === carte.index);
+      // if (index === -1) {
+      //   this.mesFavoris.push(carte);
+      // } else {
+      //   this.mesFavoris.splice(index, 1);
+      // }
+      const isCurrentlyFavorite = carte.favorite;
+      const method = isCurrentlyFavorite ? 'DELETE' : 'POST';
+      const url = process.env.VUE_APP_API_URL + '/user_favoris';
+
+      try {
+        let response;
+        if (method === 'POST') {
+          response = await fetch(url, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              'Authorization': `Bearer ${this.token}`
+            },
+            body: JSON.stringify({ voyageId: carte.id })
+          });
+        } else { // DELETE
+          response = await fetch(`${url}/${carte.id}`, {
+            method: 'DELETE',
+            headers: { 'Authorization': `Bearer ${this.token}` }
+          });
+        }
+        
+        if (!response.ok) {
+          throw new Error('La requête API a échoué');
+        }
+
+        await this.fetchFavoris();
+
+      } catch (error) {
+        console.error('Erreur lors de la mise à jour du favori :', error);
       }
     },
     isFavori(carte) {
-      return this.mesFavoris.some(f => f.index === carte.index);
+      return this.mesFavoris.some(f => f.id === carte.id);
     }
   },
-
   computed: {
-  cartesFiltrees() {
-    if (this.filtresSelectionnes.length === 0) {
-      return this.cartes;
-    }   
+    cartesFiltrees() {
+      if (this.filtresSelectionnes.length === 0) {
+        return this.cartes;
+      }
 
-    return this.cartes.filter(carte =>
-      this.filtresSelectionnes.some(filtre =>
-        carte.tag.toLowerCase().includes(filtre.toLowerCase())
-      )
-    );
-  }
-},
-
-  mounted(){
+      return this.cartes.filter(carte =>
+        this.filtresSelectionnes.some(filtre =>
+          carte.tag.toLowerCase().includes(filtre.toLowerCase())
+        )
+      );
+    },
+    cartesFavorites() {
+      return this.cartes.filter(carte => carte.favorite);
+    }
+  },
+  mounted() {
     // Récupération des voyages
-    fetch(process.env.VUE_APP_API_URL + '/voyages', {
-      method: 'GET',
-    })
-    .then(response => response.json())
-    .then(data => {
-      this.user = data;
-    })
-    .catch(error => {
-      console.error('Erreur lors de la récupération des voyages :', error);
-    });
+    // Récupérer les voyages
+fetch(process.env.VUE_APP_API_URL + '/voyages', {
+  method: 'GET',
+  headers: {
+    'Content-Type': 'application/json',
+  }
+})
+  .then(response => response.json())
+  .then(data => {
+    console.log('Voyages récupérés :', data);
+    this.user = data;
+  })
+  .catch(error => {
+    console.error('Erreur lors de la récupération des voyages :', error);
+  });
 
-    // Création d’un voyage
-    fetch (process.env.VUE_APP_API_URL + '/voyages', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        destination: this.destination,
-        date_depart: this.date_depart,
-        date_retour: this.date_retour,
-        prix: this.prix,
-        type: this.type,
-      })
-    }).then(response => response.json())
-    .then(data => {
-      console.log('Voyages créés :', data);
-    })
-    .catch(error => {
-      console.error('Erreur lors de la création des voyages :', error);
+// Récupérer les favoris
+fetch(process.env.VUE_APP_API_URL + "/user_favoris", {
+  method: 'GET',
+  headers: {
+    'Content-Type': 'application/json',
+    'Authorization': `Bearer ${this.token}`
+  }
+})
+  .then(response => response.json())
+  .then(favorisData => {
+    console.log('Favoris récupérés :', favorisData);
+    this.mesFavoris = favorisData.map(fav => fav.voyageId);
+    this.cartes.forEach(carte => {
+      if (this.mesFavoris.includes(carte.id)) {
+        carte.favorite = true;
+      }
     });
+  })
+  .catch(error => {
+    console.error('Erreur lors de la récupération des favoris :', error);
+  });
 
-    // Suppression d’un voyage
-    fetch (process.env.VUE_APP_API_URL + '/voyages',{
-      method : 'DELETE',
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${this.token}`
-      },
-      body: JSON.stringify({ id: this.id })
-    }).then(response => response.json())
-    .then(data => {
-      console.log('Voyages supprimés :', data);
-    })
-    .catch(error => {
-      console.error('Erreur lors de la suppression des voyages :', error);
-    });
-},
-}
+  }
+};
 </script>
   
 <style lang="scss" scoped>
