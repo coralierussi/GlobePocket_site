@@ -3,17 +3,32 @@
     <HeaderSiteColor/>
 
     <h1 class="titre">Mon compte</h1>
-    
-    <div class="user-json">
-       <p>{{ JSON.stringify(user) }}</p>
-       <p>token: {{ token }}</p>
-     </div>
 
     <div>
       <!-- Pseudo et Description -->
       <div>
+        <div class="name d-flex">
+          <div v-if="isEditingName" style="margin-left: 10px;">
+        <input
+          type="text"
+          v-model="editedName"
+          @keydown.enter.prevent="saveName"
+          @keydown.esc="cancelName"
+          style="width: 100%;"
+        />
+
+      </div>
+      <div v-else style="margin-left: 10px;">
+        <p class="text-pseudo">{{ user.name || 'Ajouter un nom' }}</p>
+      </div>
+
+      <!-- Icône Modifier/Enregistrer -->
+      <v-btn icon small @click="toggleEditName" class="ml-2">
+        <v-icon style="margin-left: 20px;">{{ isEditingName ? 'mdi-content-save' : 'mdi-pencil' }}</v-icon>
+      </v-btn>
+        </div>
         <!-- PSEUDO -->
-        <div class="pseudo d-flex" style="align-items: center;">
+        <div class="pseudo d-flex">
 
       <div v-if="isEditingPseudo" style="margin-left: 10px;">
         <input
@@ -26,12 +41,12 @@
 
       </div>
       <div v-else style="margin-left: 10px;">
-        <p class="text-pseudo">{{ pseudo }}</p>
+        <p class="text-pseudo">{{ user.pseudo || 'Ajouter un pseudo' }}</p>
       </div>
 
       <!-- Icône Modifier/Enregistrer -->
       <v-btn icon small @click="toggleEditPseudo" class="ml-2">
-        <v-icon>{{ isEditingPseudo ? 'mdi-content-save' : 'mdi-pencil' }}</v-icon>
+        <v-icon style="margin-left: 20px;">{{ isEditingPseudo ? 'mdi-content-save' : 'mdi-pencil' }}</v-icon>
       </v-btn>
         </div>
       
@@ -42,7 +57,7 @@
       <textarea type="text" v-model="editedDescription" @keydown.esc="cancelDescription" style="width: 100%;"></textarea>
     </div>
     <div v-else>
-      <p>{{ description || 'Aucune description' }}</p>
+      <p>{{ user.description || 'Aucune description' }}</p>
     </div>
   </div>
 
@@ -212,6 +227,11 @@ export default {
     showFileViewer: false,
     mesFichiers: [],
 
+    // édition name
+    isEditingName: false,
+    name: this.name,
+    editedName: '',
+
     // édition pseudo
     isEditingPseudo: false,
     pseudo: this.pseudo,
@@ -237,24 +257,7 @@ watch: {
 },
 mounted() {
 
-  fetch (process.env.VUE_APP_API_URL + '/users', {
-    method: 'PUT',
-    headers: {
-      'Content-Type': 'application/json',
-      'Authorization': `Bearer ${this.token}`
-    },
-    body: JSON.stringify({ pseudo: this.pseudo, description: this.description })
-  }).then(response => response.json())
-    .then(data => {
-      console.log('Données utilisateur mises à jour :', data);
-      this.user = data;
-    })
-    .catch(error => {
-      console.error('Erreur lors de la mise à jour des données utilisateur :', error);
-    });
-
-  // Récupération des photos utilisateur
-  fetch(process.env.VUE_APP_API_URL + "/users/photos", {
+  fetch(process.env.VUE_APP_API_URL + "/users/me", {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
@@ -264,29 +267,14 @@ mounted() {
     .then(data => {
       console.log('Données utilisateur récupérées :', data);
       this.user = data;
+      this.pseudo = data.pseudo || '';
+      this.description = data.description || '';
     })
     .catch(error => {
       console.error('Erreur lors de la récupération des données utilisateur :', error);
     });
 
-  // Update des photos utilisateur
-  fetch (process.env.VUE_APP_API_URL + '/users/photos', {
-    method: 'PUT',
-    headers: {
-      'Content-Type': 'application/json',
-      'Authorization': `Bearer ${this.token}`
-    },
-    body: JSON.stringify({ galerie: this.galerie })
-  }).then(response => response.json())
-    .then(data => {
-      console.log('Photos utilisateur ajoutées :', data);
-      this.user = data;
-    })
-    .catch(error => {
-      console.error('Erreur lors de l\'ajout des photos :', error);
-    });
-
-  // // Récupération des documents utilisateur
+    // // Récupération des documents utilisateur
   // fetch (process.env.VUE_APP_API_URL + '/users/documents', {
   //   method: 'GET',
   //   headers: {
@@ -323,6 +311,42 @@ mounted() {
 },
 
   methods: {
+     // NAME
+  toggleEditName() {
+    if (this.isEditingName) {
+      this.saveName();
+    } else {
+      this.editedName = this.name;
+      this.isEditingName = true;
+    }
+  },
+  saveName() {
+    this.name = this.editedName;
+    this.isEditingName = false;
+
+    fetch (process.env.VUE_APP_API_URL + '/users', {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${this.token}`
+      },
+      body: JSON.stringify({ name: this.name })
+    }).then(response => response.json())
+      .then(data => {
+        console.log('Données utilisateur mises à jour :', data);
+        this.user = data;
+      })
+      .catch(error => {
+        console.error('Erreur lors de la mise à jour des données utilisateur :', error);
+      });
+      console.log('Nom enregistré :', this.name);
+  },
+  cancelName() {
+    this.editedName = this.name;
+    this.isEditingName = false;
+    console.log('Modification nom annulée');
+  },
+
   // PSEUDO
   toggleEditPseudo() {
     if (this.isEditingPseudo) {
@@ -335,7 +359,23 @@ mounted() {
   savePseudo() {
     this.pseudo = this.editedPseudo;
     this.isEditingPseudo = false;
-    console.log('Pseudo enregistré :', this.pseudo);
+
+    fetch (process.env.VUE_APP_API_URL + '/users', {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${this.token}`
+      },
+      body: JSON.stringify({ pseudo: this.pseudo })
+    }).then(response => response.json())
+      .then(data => {
+        console.log('Données utilisateur mises à jour :', data);
+        this.user = data;
+      })
+      .catch(error => {
+        console.error('Erreur lors de la mise à jour des données utilisateur :', error);
+      });
+      console.log('Pseudo enregistré :', this.pseudo);
   },
   cancelPseudo() {
     this.editedPseudo = this.pseudo;
@@ -348,6 +388,21 @@ mounted() {
     if (this.isEditingDescription) {
       this.description = this.editedDescription;
       this.isEditingDescription = false;
+      fetch (process.env.VUE_APP_API_URL + '/users', {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${this.token}`
+      },
+      body: JSON.stringify({ description: this.description })
+    }).then(response => response.json())
+      .then(data => {
+        console.log('Données utilisateur mises à jour :', data);
+        this.user = data;
+      })
+      .catch(error => {
+        console.error('Erreur lors de la mise à jour des données utilisateur :', error);
+      });
       console.log('Description enregistrée :', this.description);
     } else {
       this.editedDescription = this.description;
@@ -405,6 +460,19 @@ isImage(file) {
 
 
 <style lang="scss" scoped>
+
+#comptePage {
+  padding: 20px;
+}
+.titre {
+  font-size: 30px;
+  font-weight: bold;
+  margin: 20px 0px;
+}
+
+.documents{
+  margin: 20px 0px;
+}
 
 .img-avatar {
   width: 50px;
