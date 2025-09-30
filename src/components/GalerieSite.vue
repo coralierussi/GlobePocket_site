@@ -172,21 +172,21 @@ export default {
     });
 
     // Update des photos utilisateur
-  fetch (process.env.VUE_APP_API_URL + '/users/photos', {
-    method: 'PUT',
-    headers: {
-      'Content-Type': 'application/json',
-      'Authorization': `Bearer ${this.token}`
-    },
-    body: JSON.stringify({ galerie: this.galerie })
-  }).then(response => response.json())
-    .then(data => {
-      console.log('Photos utilisateur ajoutées :', data);
-      this.user = data;
-    })
-    .catch(error => {
-      console.error('Erreur lors de l\'ajout des photos :', error);
-    });
+  // fetch (process.env.VUE_APP_API_URL + '/users/photos', {
+  //   method: 'PUT',
+  //   headers: {
+  //     'Content-Type': 'application/json',
+  //     'Authorization': `Bearer ${this.token}`
+  //   },
+  //   body: JSON.stringify({ galerie: this.galerie })
+  // }).then(response => response.json())
+  //   .then(data => {
+  //     console.log('Photos utilisateur ajoutées :', data);
+  //     this.user = data;
+  //   })
+  //   .catch(error => {
+  //     console.error('Erreur lors de l\'ajout des photos :', error);
+  //   });
   }
 };
 </script>
