@@ -26,6 +26,7 @@
                             <v-expansion-panel
                               v-for="(filtre, index) in filtres"
                               :key="index"
+                              data-testid="filter-panel"
                             >
                               <v-expansion-panel-header>
                               <div class="filtre-header-content">
@@ -44,6 +45,7 @@
                                   :label="sousFiltre.name"
                                   :value="sousFiltre.name"
                                   v-model="filtresSelectionnes"
+                                  :data-testid="'activity-type-checkbox-' + sousFiltre.name.toLowerCase().replace(/\s/g, '-')"
                                 />
                                 </template>
                                 <template v-else>
@@ -57,7 +59,7 @@
             </div>
             <div class="activites" >
                     <div v-if="cartesFiltrees.length > 0" class="grid-activites">
-                        <div class="carte-activites" v-for="(carte, index) in cartesFiltrees" :key="index">
+                        <div class="carte-activites" data-testid="activity-card" v-for="(carte, index) in cartesFiltrees" :key="index">
                             <div class="image-activites">
                                 <router-link :to= "'/activite/' + carte.slug">
                                 <img :src="carte.image" :alt="carte.name" class="img-carte-lieu" />
